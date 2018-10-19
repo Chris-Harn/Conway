@@ -5,8 +5,8 @@ class Game {
 public:
 	void init();
 	void render();
-	void update()
-	void handleEvents()
+	void update();
+	void handleEvents();
 	void clean();
 	
 	Game();

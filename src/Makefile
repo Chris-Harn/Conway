@@ -1,4 +1,4 @@
-OBJS = Tile.cpp Board.cpp Main.cpp
+OBJS = *.cpp
 
 CC = g++ -std=c++11
 
