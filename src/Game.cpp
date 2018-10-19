@@ -1,7 +1,7 @@
 #include "Game.h"
 
 Game::Game() {
-
+	m_bRunning = true;
 }
 
 Game::~Game() {

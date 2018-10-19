@@ -12,7 +12,7 @@ public:
 	Game();
 	~Game();
 private:
-	bool g_bRunning;
+	bool m_bRunning;
 };
 
 #endif
