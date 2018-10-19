@@ -8,9 +8,9 @@ enum Status {
 
 class Tile {
 public:
-	int X;
-	int Y;
-	Status Current;
+	int m_x;
+	int m_y;
+	Status m_currentStatus;
 
 	Tile();
 	~Tile();
