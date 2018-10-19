@@ -4,7 +4,7 @@
 enum Status {
 	Dead,
 	Alive
-}
+};
 
 class Tile {
 public:
