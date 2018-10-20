@@ -28,11 +28,9 @@ void Game::handleEvents() {
 
 }
 
-void clean() {
-	/*
+void Game::clean() {
 	if( m_pboard != 0 ) {
 		delete m_pboard;
 		m_pboard = NULL;
 	}
-	*/
 }

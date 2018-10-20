@@ -14,8 +14,9 @@ public:
 	Game();
 	~Game();
 	bool running() { return m_bRunning; }
-private:
+
 	bool m_bRunning;
+private:
 	Board *m_pboard;
 };
 
