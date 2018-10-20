@@ -51,7 +51,7 @@ void Board::randomizeBoard() {
 	for( int j = 0; j < m_tableHeight; j++ ) {
 		for( int i = 0; i < m_tableWidth; i++ ) {
 			currentNumber = i + ( j * m_tableWidth );	
-			if( ( rand() % 2 + 1 ) == 2 ) {
+			if( ( rand() % 3 + 1 ) == 3 ) {
 				m_pTable[ currentNumber ].flip();
 			}
 		}

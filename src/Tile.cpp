@@ -6,6 +6,7 @@ Tile::Tile() {
 	int m_x = 0;
 	int m_y = 0;
 	m_currentStatus = Status::Dead;
+	numberOfLiveNeighbors = 0;
 }
 
 Tile::~Tile() {
@@ -38,9 +39,22 @@ void Tile::draw() {
 }
 
 void Tile::flip() {
-	if( m_currentStatus == Status::Dead ) {
-		m_currentStatus = Status::Alive;
-	} else {
-		m_currentStatus = Status::Dead;
+		// remove at a later time
+		if( m_currentStatus == Status::Dead ) {
+			m_currentStatus = Status::Alive;
+		} else {
+			m_currentStatus = Status::Dead;
+		}
+	/*
+	if ( numberOfLiveNeighbors < 2 ) {
+		m_currentStatus == Status::Dead;
+	} else if ( numberOfLiveNeighbors < 4 ) {
+		// do nothing...
+		return
+	} else if ( numberOfLiveNeighbors > 3 ) {
+		m_currentStatus == Status::Dead;
+	} else if ( numberOfLiveNeighbors == 3 ) {
+		m_currentStatus == Status::Alive;
 	}
+	*/
 }

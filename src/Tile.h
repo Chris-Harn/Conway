@@ -17,10 +17,12 @@ public:
 	void setY( int y );
 	void draw();
 	void flip();
+	void setLive( int numberOfLiveNeighbors );
 private:
 	int m_x;
 	int m_y;
 	Status m_currentStatus;
+	int numberOfLiveNeighbors;
 };
 
 #endif
