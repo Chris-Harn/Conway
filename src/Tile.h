@@ -9,6 +9,7 @@ enum Status {
 class Tile {
 public:
 	Tile();
+	Tile( int x, int y );
 	~Tile();
 
 	Status getState();
