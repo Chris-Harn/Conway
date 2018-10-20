@@ -16,7 +16,7 @@ int main( int argc, char* argv[] ) {
 		g_game.render();
 		count++;
 		if( count > 10000 )  
-			g_game.m_bRunning = false;
+			g_game.exit();
 	}	
 	g_game.clean();
 

@@ -14,10 +14,10 @@ public:
 	Game();
 	~Game();
 	bool running() { return m_bRunning; }
-
-	bool m_bRunning;
+	void exit() { m_bRunning = false; }
 private:
 	Board *m_pboard;
+	bool m_bRunning;
 };
 
 #endif
