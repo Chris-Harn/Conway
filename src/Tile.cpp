@@ -25,7 +25,7 @@ void Tile::draw() {
 	if( m_balive ) {
 		std::cout << "X";
 	} else {
-		std::cout << "O";
+		std::cout << "-";
 	}
 }
 
