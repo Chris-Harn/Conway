@@ -1,6 +1,6 @@
 #include "Game.h"
 
-Game::Game() {
+Game::Game( int boardWidth, int boardHeight ) {
 	m_bRunning = true;
 }
 

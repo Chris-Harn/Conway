@@ -9,7 +9,7 @@ public:
 	void handleEvents();
 	void clean();
 	
-	Game();
+	Game( int boardWidth, int boardHeight );
 	~Game();
 	bool running() { return m_bRunning; }
 private:
