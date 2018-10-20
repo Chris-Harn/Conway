@@ -1,15 +1,19 @@
 #include "Game.h"
 
-Game::Game( int boardWidth, int boardHeight ) {
-	m_bRunning = true;
+#include "Board.h"
+
+#include <cstddef>
+
+Game::Game() : m_bRunning( true ), m_pboard( 0 ) {
+
 }
 
 Game::~Game() {
 
 }
 
-void Game::init() {
-
+void Game::init( int boardWidth, int boardHeight ) {
+	m_pboard = new Board( boardWidth, boardHeight );
 }
 
 void Game::render() {
@@ -25,5 +29,10 @@ void Game::handleEvents() {
 }
 
 void clean() {
-
+	/*
+	if( m_pboard != 0 ) {
+		delete m_pboard;
+		m_pboard = NULL;
+	}
+	*/
 }
