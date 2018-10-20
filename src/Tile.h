@@ -1,27 +1,22 @@
 #ifndef __TILE__
 #define __TILE__
 
-enum Status {
-	Dead,
-	Alive
-};
-
 class Tile {
 public:
 	Tile();
 	Tile( int x, int y );
 	~Tile();
 
-	Status getState();
+	int alive();
 	void setX( int x );
 	void setY( int y );
 	void draw();
 	void flip();
-	void setLive( int numberOfLiveNeighbors );
+	void setLive( int liveNeighbors );
 private:
 	int m_x;
 	int m_y;
-	Status m_currentStatus;
+	bool m_balive; 
 	int numberOfLiveNeighbors;
 };
 

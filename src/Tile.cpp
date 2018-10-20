@@ -5,16 +5,12 @@
 Tile::Tile() {
 	int m_x = 0;
 	int m_y = 0;
-	m_currentStatus = Status::Dead;
+	m_balive = false;
 	numberOfLiveNeighbors = 0;
 }
 
 Tile::~Tile() {
 
-}
-
-Status Tile::getState() {
-	return m_currentStatus;
 }
 
 void Tile::setX( int x ) {
@@ -26,35 +22,31 @@ void Tile::setY( int y ) {
 }
 
 void Tile::draw() {
-	switch( m_currentStatus ) {
-		case Status::Dead:
-			std::cout << "O";
-			break;
-		case Status::Alive:
-			std::cout << "X";
-			break;
-		default:
-			std::cout << "E";
+	if( m_balive ) {
+		std::cout << "X";
+	} else {
+		std::cout << "O";
 	}
 }
 
 void Tile::flip() {
-		// remove at a later time
-		if( m_currentStatus == Status::Dead ) {
-			m_currentStatus = Status::Alive;
-		} else {
-			m_currentStatus = Status::Dead;
-		}
-	/*
 	if ( numberOfLiveNeighbors < 2 ) {
-		m_currentStatus == Status::Dead;
-	} else if ( numberOfLiveNeighbors < 4 ) {
-		// do nothing...
-		return
-	} else if ( numberOfLiveNeighbors > 3 ) {
-		m_currentStatus == Status::Dead;
+		m_balive = false;
 	} else if ( numberOfLiveNeighbors == 3 ) {
-		m_currentStatus == Status::Alive;
+		m_balive = true;
+	} else if ( numberOfLiveNeighbors < 4 ) {
+		// do nothing
+	} else if ( numberOfLiveNeighbors > 3 ) {
+		m_balive = false;
 	}
-	*/
+
+	numberOfLiveNeighbors = 0;
+}
+
+int Tile::alive() {
+	return m_balive;
+}
+
+void Tile::setLive( int liveNeighbors ) {
+	numberOfLiveNeighbors = liveNeighbors;
 }

@@ -22,7 +22,9 @@ void Game::render() {
 }
 
 void Game::update() {
-	m_pboard->randomizeBoard();
+//	m_pboard->randomizeBoard();
+	m_pboard->countNeighbors();
+	m_pboard->updateBoard();
 }
 
 void Game::handleEvents() {

@@ -9,7 +9,9 @@ public:
 	~Board();
 
 	void clearScreen();
-	void drawBoard();	
+	void drawBoard();
+	void countNeighbors();
+	void updateBoard();
 	void randomizeBoard();
 private:
 	int m_tableWidth;
