@@ -8,7 +8,7 @@ int main( int argc, char* argv[] ) {
 	Game g_game;
 	Uint32 Timer = SDL_GetTicks();
 
-	g_game.init( 80, 40 );
+	g_game.init( 20, 10 );
 	while( g_game.running() == true ) {
 		g_game.handleEvents();
 

@@ -10,6 +10,7 @@ public:
 
 	void clearScreen();
 	void drawBoard();
+	void drawNumbers();
 	void countNeighbors();
 	void updateBoard();
 	void randomizeBoard();

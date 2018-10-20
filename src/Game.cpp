@@ -19,6 +19,7 @@ void Game::init( int boardWidth, int boardHeight ) {
 void Game::render() {
 	m_pboard->clearScreen();
 	m_pboard->drawBoard();
+//	m_pboard->drawNumbers();
 }
 
 void Game::update() {

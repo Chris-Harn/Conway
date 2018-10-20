@@ -50,3 +50,7 @@ int Tile::alive() {
 void Tile::setLive( int liveNeighbors ) {
 	numberOfLiveNeighbors = liveNeighbors;
 }
+
+void Tile::drawNumber() {
+	std::cout << numberOfLiveNeighbors;
+}

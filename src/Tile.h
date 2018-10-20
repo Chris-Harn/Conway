@@ -11,6 +11,7 @@ public:
 	void setX( int x );
 	void setY( int y );
 	void draw();
+	void drawNumber();
 	void flip();
 	void setLive( int liveNeighbors );
 private:
