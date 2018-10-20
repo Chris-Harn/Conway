@@ -1,11 +1,15 @@
 #include "Tile.h"
 
-Tile::Tile() {
-	int m_x = 0;
-	int m_y = 0;
+Tile::Tile( int setX, int setY ) {
+	int m_x = setX;
+	int m_y = setY;
 	m_currentStatus = Status::Dead;
 }
 
 Tile::~Tile() {
 
+}
+
+Status Tile::getState() {
+	return m_currentStatus;
 }
