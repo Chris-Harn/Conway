@@ -8,10 +8,12 @@ enum Status {
 
 class Tile {
 public:
-	Tile( int setX, int setY );
+	Tile();
 	~Tile();
 
 	Status getState();
+	void setX( int x );
+	void setY( int y );
 private:
 	int m_x;
 	int m_y;
