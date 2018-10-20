@@ -4,7 +4,7 @@ CC = g++ -std=c++11
 
 COMPILER_FLAGS = -Wall -Wextra -g
 
-LINKER_FLAGS = 
+LINKER_FLAGS = -lSDL2
 
 OBJ_NAME = Life
 
