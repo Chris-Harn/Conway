@@ -6,7 +6,10 @@ class Tile;
 class Board {
 public:
 	Board( int width, int height );
-	~Board();	
+	~Board();
+
+	void clearScreen();
+	void drawBoard();	
 private:
 	int m_tableWidth;
 	int m_tableHeight;

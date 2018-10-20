@@ -23,3 +23,20 @@ Board::~Board() {
 		m_pTable = 0;
 	}
 }
+
+void Board::clearScreen() {
+	// console version- doesn't matter
+	//std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	std::cout << "\x1B[2J\x1B[H";
+}
+
+void Board::drawBoard() {
+	int currentNumber;
+	for( int j = 0; j < m_tableHeight; j++ ) {
+		for( int i = 0; i < m_tableWidth; i++ ) {
+			currentNumber = i + ( j * m_tableWidth );	
+			m_pTable[ currentNumber ].draw();
+		}
+		std::cout << "\n";
+	}
+}

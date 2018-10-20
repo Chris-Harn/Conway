@@ -15,11 +15,11 @@ public:
 	Status getState();
 	void setX( int x );
 	void setY( int y );
+	void draw();
 private:
 	int m_x;
 	int m_y;
 	Status m_currentStatus;
-
 };
 
 #endif
