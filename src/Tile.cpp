@@ -36,3 +36,11 @@ void Tile::draw() {
 			std::cout << "E";
 	}
 }
+
+void Tile::flip() {
+	if( m_currentStatus == Status::Dead ) {
+		m_currentStatus = Status::Alive;
+	} else {
+		m_currentStatus = Status::Dead;
+	}
+}

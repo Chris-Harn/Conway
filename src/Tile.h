@@ -16,6 +16,7 @@ public:
 	void setX( int x );
 	void setY( int y );
 	void draw();
+	void flip();
 private:
 	int m_x;
 	int m_y;

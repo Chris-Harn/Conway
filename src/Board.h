@@ -10,6 +10,7 @@ public:
 
 	void clearScreen();
 	void drawBoard();	
+	void randomizeBoard();
 private:
 	int m_tableWidth;
 	int m_tableHeight;

@@ -22,7 +22,7 @@ void Game::render() {
 }
 
 void Game::update() {
-
+	m_pboard->randomizeBoard();
 }
 
 void Game::handleEvents() {

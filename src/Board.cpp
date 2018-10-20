@@ -1,8 +1,10 @@
 #include "Board.h"
-
 #include "Tile.h"
 
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 Board::Board( int width, int height ) : m_tableWidth( width ), m_tableHeight( height ), m_pTable( 0 ) {
 	m_pTable = new Tile[ width * height ];
@@ -15,6 +17,9 @@ Board::Board( int width, int height ) : m_tableWidth( width ), m_tableHeight( he
 				m_pTable[ currentNumber ].setY( j + 1 );
 			}
 		}
+
+	// test randomize factor
+	srand( time( NULL ) );
 }
 
 Board::~Board() {
@@ -39,4 +44,17 @@ void Board::drawBoard() {
 		}
 		std::cout << "\n";
 	}
+}
+
+void Board::randomizeBoard() {
+	int currentNumber;
+	for( int j = 0; j < m_tableHeight; j++ ) {
+		for( int i = 0; i < m_tableWidth; i++ ) {
+			currentNumber = i + ( j * m_tableWidth );	
+			if( ( rand() % 2 + 1 ) == 2 ) {
+				m_pTable[ currentNumber ].flip();
+			}
+		}
+	}
+
 }

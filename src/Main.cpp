@@ -11,10 +11,10 @@ int main( int argc, char* argv[] ) {
 	g_game.init( 80, 40 );
 	while( g_game.running() == true ) {
 		g_game.handleEvents();
-		g_game.update();
 
 		if( ( SDL_GetTicks() - Timer ) > DELAY ) {
 			Timer = SDL_GetTicks();
+			g_game.update();
 			g_game.render();
 		}
 	}	
