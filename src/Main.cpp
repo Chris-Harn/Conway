@@ -1,21 +1,22 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
+#include "Main.h"
 #include "Game.h"
 
 int main( int argc, char* argv[] ) {
 	Game g_game;
-
-	int count = 0; // placeholder code to prevent infinite loop until handleEvents is filled in
+	Uint32 Timer = SDL_GetTicks();
 
 	g_game.init( 80, 40 );
 	while( g_game.running() == true ) {
 		g_game.handleEvents();
 		g_game.update();
-		g_game.render();
-		count++;
-		if( count > 10000 )  
-			g_game.exit();
+
+		if( ( SDL_GetTicks() - Timer ) > DELAY ) {
+			Timer = SDL_GetTicks();
+			g_game.render();
+		}
 	}	
 	g_game.clean();
 
