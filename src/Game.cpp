@@ -3,6 +3,7 @@
 #include "Board.h"
 
 #include <cstddef>
+Game* Game::s_pInstance = 0;
 
 Game::Game() : m_bRunning( true ), m_pboard( 0 ) {
 

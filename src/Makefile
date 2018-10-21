@@ -13,4 +13,4 @@ all: $(OBJS)
 
 .PHONY: clean
 clean:
-	rm Life .*.*.swp
+	rm Life .*.*.swp *.o

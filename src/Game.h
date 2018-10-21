@@ -11,13 +11,23 @@ public:
 	void handleEvents();
 	void clean();
 	
-	Game();
 	~Game();
 	bool running() { return m_bRunning; }
 	void exit() { m_bRunning = false; }
+	static Game* Instance() {
+		if( s_pInstance == 0 ) {
+			s_pInstance = new Game();
+			return s_pInstance;	
+		}
+		return s_pInstance;
+	}
 private:
+	Game();
 	Board *m_pboard;
 	bool m_bRunning;
+	static Game* s_pInstance;
 };
+
+typedef Game TheGame;
 
 #endif
