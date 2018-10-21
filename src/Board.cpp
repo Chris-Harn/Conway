@@ -9,17 +9,8 @@
 Board::Board( int width, int height ) : m_tableWidth( width ), m_tableHeight( height ), m_pTable( 0 ) {
 	m_pTable = new Tile[ width * height ];
 	
-	int currentNumber;	
-	for( int j = 0; j < m_tableHeight; j++ ) {
-			for( int i = 0; i < m_tableWidth; i++ ) {
-				currentNumber = i + ( j * m_tableWidth );
-				m_pTable[ currentNumber ].setX( i + 1 );
-				m_pTable[ currentNumber ].setY( j + 1 );
-			}
-		}
-
 	// create glider in middle to test logic
-	currentNumber = m_tableWidth/2 + ( (m_tableHeight / 2) * m_tableWidth );
+	int currentNumber = m_tableWidth/2 + ( (m_tableHeight / 2) * m_tableWidth );
 	m_pTable[ currentNumber ].setLive( 3 ); // good
 	m_pTable[ currentNumber + 1].setLive( 3 );
 	m_pTable[ currentNumber + 1 - m_tableWidth ].setLive( 3 );
