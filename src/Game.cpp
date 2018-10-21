@@ -1,6 +1,7 @@
 #include "Game.h"
 
 #include "Board.h"
+#include "Input.h"
 
 #include <cstddef>
 Game* Game::s_pInstance = 0;
@@ -30,7 +31,7 @@ void Game::update() {
 }
 
 void Game::handleEvents() {
-
+	TheInputHandler::Instance()->update();
 }
 
 void Game::clean() {

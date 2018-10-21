@@ -1,7 +1,13 @@
 #ifndef __INPUT__
 #define __INPUT__
 
+#include <vector>
 
+enum mouse_buttons {
+	LEFT = 0,
+	MIDDLE = 1,
+	Right = 2
+};
 class Input {
 public:
 	void update();
@@ -19,6 +25,7 @@ private:
 	~Input();
 	
 	static Input* s_pInstance;
+	std::vector<bool> m_mouseButtonStates;
 };
 
 typedef Input TheInputHandler;
