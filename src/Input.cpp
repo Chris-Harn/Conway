@@ -2,9 +2,6 @@
 
 #include "Game.h"
 
-#include <iostream>
-
-
 Input* Input::s_pInstance = 0;
 
 Input::Input() {
@@ -36,7 +33,6 @@ void Input::update() {
 				onMouseButtonUp( event );
 				break;
 			case SDL_KEYDOWN:
-				std::cout << "Inside SDL_Keydown.\n";
 				onKeyDown();
 				break;
 			case SDL_KEYUP:
@@ -53,7 +49,6 @@ void Input::clean() {
 }
 
 void Input::onKeyDown() {
-	std::cout << "inside onKeyDown and updating keystates.\n";
 	m_keystates = SDL_GetKeyboardState(0);
 }
 

@@ -4,7 +4,6 @@
 #include "Input.h"
 
 #include <cstddef>
-#include <iostream>
 
 Game* Game::s_pInstance = 0;
 
@@ -51,12 +50,13 @@ void Game::update() {
 void Game::handleEvents() {
 	TheInputHandler::Instance()->update();
 	if( TheInputHandler::Instance()->onKeyDown( SDL_SCANCODE_SPACE ) ) {
-		std::cout << "Inside Space." << TheGame::Instance()->gamePaused() << " .\n";
 		TheGame::Instance()->changePause();
 	}
 }
 
 void Game::clean() {
+	SDL_DestroyWindow( m_pwindow );
+	SDL_DestroyRenderer( m_prenderer );
 	SDL_Quit();
 
 	if( m_pboard != 0 ) {
@@ -66,7 +66,6 @@ void Game::clean() {
 }
 
 void Game::changePause() { 
-	std::cout << "Inside changePause.\n";
 	m_bPaused = !m_bPaused;
 }
 
