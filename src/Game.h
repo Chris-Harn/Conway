@@ -23,8 +23,11 @@ public:
 	}
 private:
 	Game();
+	void changePause();
+	bool gamePaused();
 	Board *m_pboard;
 	bool m_bRunning;
+	bool m_bPaused;
 	static Game* s_pInstance;
 };
 

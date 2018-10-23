@@ -70,10 +70,13 @@ void Input::onKeyUp() {
 
 void Input::onMouseMove( SDL_Event& event ) {
 
-:}
+}
 
 void Input::onMouseButtonDown( SDL_Event& event ) {
-
+	// if paused, switch over tile
+	if( event.button.button = SDL_BUTTON_LEFT ) {
+		m_mouseButtonStates[LEFT] = true;
+	}
 }
 
 void Input::onMouseButtonUp( SDL_Event& event ) {

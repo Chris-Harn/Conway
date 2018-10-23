@@ -6,7 +6,7 @@
 #include <cstddef>
 Game* Game::s_pInstance = 0;
 
-Game::Game() : m_bRunning( true ), m_pboard( 0 ) {
+Game::Game() : m_bRunning( true ), m_pboard( 0 ), m_bPaused( true ) {
 
 }
 
@@ -40,3 +40,16 @@ void Game::clean() {
 		m_pboard = NULL;
 	}
 }
+
+void Game::changePause() { 
+	if( m_bPaused == true ) {
+		m_bPaused = false;
+	} else {
+		m_bPaused = true;
+	}
+}
+
+bool Game::gamePaused() {
+	return m_bPaused;
+}
+
