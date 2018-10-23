@@ -26,6 +26,7 @@ private:
 	~Input();
 
 	void onKeyDown();
+	bool onKeyDown( SDL_Scancode key );
 	void onKeyUp();
 
 	void onMouseMove( SDL_Event& event );
@@ -33,6 +34,7 @@ private:
 	void onMouseButtonUp( SDL_Event& event );
 	
 	static Input* s_pInstance;
+	const Uint8* m_keystates;
 	std::vector<bool> m_mouseButtonStates;
 };
 

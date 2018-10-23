@@ -9,12 +9,13 @@ Input::Input() {
 	for( int i = 0; i < 3; i++ ) {
 		m_mouseButtonStates.push_back( false );
 	}
+
+	m_keystates = SDL_GetKeyboardState(0);
 }
 
 Input::~Input() {
 
 }
-
 
 void Input::update() {
 	SDL_Event event;
@@ -43,6 +44,17 @@ void Input::clean() {
 
 void Input::onKeyDown() {
 
+}
+
+bool Input::onKeyDown( SDL_Scancode key ) {
+	if( m_keystates != 0 ) {
+		if( m_keystates[key] == 1 ) {
+			return true;
+		} else {
+			return false;	
+		}
+	}	
+	return false;
 }
 
 void Input::onKeyUp() {
