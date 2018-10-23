@@ -1,11 +1,8 @@
-#include <SDL2/SDL.h>
-#include <iostream>
-
 #include "Main.h"
 #include "Game.h"
 #include "Timer.h"
 
-int main( int argc, char* argv[] ) {
+int main() {
 	Timer Clock;
 	Clock.init( DELAY_RENDERER, DELAY_UPDATE_BOARD );
 
@@ -22,8 +19,6 @@ int main( int argc, char* argv[] ) {
 		}
 	}	
 	TheGame::Instance()->clean();
-
-	std::cout << "Program finished without issue." << std::endl;
 
 	return 0;
 }
