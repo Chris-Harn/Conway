@@ -8,12 +8,15 @@ int main( int argc, char* argv[] ) {
 	Uint32 Timer = SDL_GetTicks();
 
 	TheGame::Instance()->init( GAME_WIDTH, GAME_HEIGHT );
-	while( TheGame::Instance()->running() == true ) {
+	while( TheGame::Instance()->running() ) {
 		TheGame::Instance()->handleEvents();
 
 		if( ( SDL_GetTicks() - Timer ) > DELAY ) {
 			Timer = SDL_GetTicks();
-			TheGame::Instance()->update();
+			if( !TheGame::Instance()->gamePaused() ) {
+				TheGame::Instance()->update();
+			}
+
 			TheGame::Instance()->render();
 		}
 	}	

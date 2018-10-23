@@ -21,12 +21,12 @@ public:
 		return s_pInstance;
 	}
 
+	bool onKeyDown( SDL_Scancode key );
 private:
 	Input();
 	~Input();
 
 	void onKeyDown();
-	bool onKeyDown( SDL_Scancode key );
 	void onKeyUp();
 
 	void onMouseMove( SDL_Event& event );
