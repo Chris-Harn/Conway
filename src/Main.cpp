@@ -7,7 +7,7 @@
 int main( int argc, char* argv[] ) {
 	Uint32 Timer = SDL_GetTicks();
 
-	TheGame::Instance()->init( GAME_WIDTH, GAME_HEIGHT );
+	TheGame::Instance()->init( GAME_WIDTH, GAME_HEIGHT, SCREEN_HEIGHT, SCREEN_WIDTH );
 	while( TheGame::Instance()->running() ) {
 		TheGame::Instance()->handleEvents();
 

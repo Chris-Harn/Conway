@@ -15,9 +15,9 @@ Game::~Game() {
 
 }
 
-bool Game::init( int boardWidth, int boardHeight ) {
+bool Game::init( int boardWidth, int boardHeight, int screenHeight, int screenWidth ) {
 	if( SDL_Init( SDL_INIT_EVERYTHING ) >= 0 ) {
-		m_pwindow = SDL_CreateWindow( "Conway's Game of Life - C++ and SDL", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN );	
+		m_pwindow = SDL_CreateWindow( "Conway's Game of Life", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN );	
 
 		if( m_pwindow != 0 ) {
 			m_prenderer = SDL_CreateRenderer( m_pwindow, -1, 0 );	

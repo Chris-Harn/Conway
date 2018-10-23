@@ -7,7 +7,7 @@ class Board;
 
 class Game {
 public:
-	bool init( int boardWidth, int boardHeight );
+	bool init( int boardWidth, int boardHeight, int screenWidth, int screenHeight );
 	void render();
 	void update();
 	void handleEvents();
