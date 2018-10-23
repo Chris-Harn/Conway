@@ -6,15 +6,15 @@
 #include "Timer.h"
 
 int main( int argc, char* argv[] ) {
-	Uint32 Timer = SDL_GetTicks();
+	Timer Clock;
+	Clock.init( DELAY_RENDERER, DELAY_UPDATE_BOARD );
 
 	TheGame::Instance()->init( GAME_WIDTH, GAME_HEIGHT, SCREEN_HEIGHT, SCREEN_WIDTH );
 	while( TheGame::Instance()->running() ) {
 		TheGame::Instance()->handleEvents();
 
-		if( ( SDL_GetTicks() - Timer ) > DELAY ) {
-			Timer = SDL_GetTicks();
-			if( !TheGame::Instance()->gamePaused() ) {
+		if( Clock.timeForRender() ) {
+			if( !TheGame::Instance()->gamePaused() && Clock.timeForUpdatingBoard() ) {
 				TheGame::Instance()->update();
 			}
 
