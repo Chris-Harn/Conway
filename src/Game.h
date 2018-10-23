@@ -15,7 +15,8 @@ public:
 	
 	bool running() { return m_brunning; }
 	bool gamePaused();
-	void changePause();
+	void pauseBoard();
+	void unpauseBoard();
 	void exit() { m_brunning = false; }
 	static Game* Instance() {
 		if( s_pInstance == 0 ) {

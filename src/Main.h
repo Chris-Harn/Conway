@@ -10,6 +10,6 @@ const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
 // window context for graphics
-const char windowContext[] = "Console";
+const char windowContext[] = "Console";  // "SDL"
 
 #endif

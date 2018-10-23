@@ -38,11 +38,11 @@ bool Game::init( const int boardWidth, const int boardHeight, const int screenWi
 void Game::render() {
 	m_pboard->clearScreen();
 	m_pboard->drawBoard();
-//	m_pboard->drawNumbers();
+//	m_pboard->drawNumbers(); // shows neighbor cell counts
 }
 
 void Game::update() {
-//	m_pboard->randomizeBoard();
+//	m_pboard->randomizeBoard(); // generates random cells to test performance
 	m_pboard->countNeighbors();
 	m_pboard->updateBoard();
 }
@@ -50,7 +50,11 @@ void Game::update() {
 void Game::handleEvents() {
 	TheInputHandler::Instance()->update();
 	if( TheInputHandler::Instance()->onKeyDown( SDL_SCANCODE_SPACE ) ) {
-		TheGame::Instance()->changePause();
+		TheGame::Instance()->unpauseBoard();
+	}
+
+	if( TheInputHandler::Instance()->onKeyDown( SDL_SCANCODE_RETURN ) ) {
+		TheGame::Instance()->pauseBoard();
 	}
 }
 
@@ -65,8 +69,12 @@ void Game::clean() {
 	}
 }
 
-void Game::changePause() { 
-	m_bpaused = !m_bpaused;
+void Game::pauseBoard() {
+	m_bpaused = true;
+}
+
+void Game::unpauseBoard() {
+	m_bpaused = false;
 }
 
 bool Game::gamePaused() {
