@@ -13,11 +13,10 @@ public:
 	void handleEvents();
 	void clean();
 	
-	~Game();
-	bool running() { return m_bRunning; }
-	void exit() { m_bRunning = false; }
+	bool running() { return m_brunning; }
 	bool gamePaused();
 	void changePause();
+	void exit() { m_brunning = false; }
 	static Game* Instance() {
 		if( s_pInstance == 0 ) {
 			s_pInstance = new Game();
@@ -25,11 +24,13 @@ public:
 		}
 		return s_pInstance;
 	}
+
 private:
 	Game();
+	~Game();
 	Board *m_pboard;
-	bool m_bRunning;
-	bool m_bPaused;
+	bool m_brunning;
+	bool m_bpaused;
 	static Game* s_pInstance;
 	SDL_Renderer *m_prenderer;
 	SDL_Window *m_pwindow;

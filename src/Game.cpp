@@ -7,7 +7,7 @@
 
 Game* Game::s_pInstance = 0;
 
-Game::Game() : m_bRunning( true ), m_pboard( 0 ), m_bPaused( true ) {
+Game::Game() : m_pboard( 0 ), m_brunning( true ), m_bpaused( true ) {
 	
 }
 
@@ -66,10 +66,9 @@ void Game::clean() {
 }
 
 void Game::changePause() { 
-	m_bPaused = !m_bPaused;
+	m_bpaused = !m_bpaused;
 }
 
 bool Game::gamePaused() {
-	return m_bPaused;
+	return m_bpaused;
 }
-
