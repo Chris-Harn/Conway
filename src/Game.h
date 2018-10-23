@@ -7,7 +7,7 @@ class Board;
 
 class Game {
 public:
-	bool init( int boardWidth, int boardHeight, int screenWidth, int screenHeight );
+	bool init( const int boardWidth, const int boardHeight, const int screenWidth, const int screenHeight );
 	void render();
 	void update();
 	void handleEvents();
