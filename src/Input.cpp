@@ -20,20 +20,27 @@ Input::~Input() {
 void Input::update() {
 	SDL_Event event;
 	while( SDL_PollEvent( &event ) ) {
-		if( event.type == SDL_QUIT ) {
-			TheGame::Instance()->exit();
-		}
-
-		if( event.type == SDL_MOUSEBUTTONDOWN ) {
-			if( event.button.button = SDL_BUTTON_LEFT ) {
-				m_mouseButtonStates[LEFT] = true;
-			}
-		}
-
-		if( event.type == SDL_MOUSEBUTTONUP ) {
-			if( event.button.button = SDL_BUTTON_LEFT ) {
-				m_mouseButtonStates[LEFT] = false;
-			}
+		switch( event.type ) {
+			case SDL_QUIT:
+				TheGame::Instance()->exit();
+				break;
+			case SDL_MOUSEMOTION:
+				onMouseMove( event );
+				break;
+			case SDL_MOUSEBUTTONDOWN:
+				onMouseButtonDown( event );
+				break;
+			case SDL_MOUSEBUTTONUP:
+				onMouseButtonUp( event );
+				break;
+			case SDL_KEYDOWN:
+				onKeyDown();
+				break;
+			case SDL_KEYUP:
+				onKeyUp();
+				break;
+			default:
+				break;
 		}
 	}
 }
@@ -63,7 +70,7 @@ void Input::onKeyUp() {
 
 void Input::onMouseMove( SDL_Event& event ) {
 
-}
+:}
 
 void Input::onMouseButtonDown( SDL_Event& event ) {
 
