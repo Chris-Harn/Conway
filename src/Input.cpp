@@ -2,7 +2,6 @@
 
 #include "Game.h"
 
-#include <SDL2/SDL.h>
 
 Input* Input::s_pInstance = 0;
 
@@ -39,5 +38,25 @@ void Input::update() {
 }
 
 void Input::clean() {
+
+}
+
+void Input::onKeyDown() {
+
+}
+
+void Input::onKeyUp() {
+
+}
+
+void Input::onMouseMove( SDL_Event& event ) {
+
+}
+
+void Input::onMouseButtonDown( SDL_Event& event ) {
+
+}
+
+void Input::onMouseButtonUp( SDL_Event& event ) {
 
 }

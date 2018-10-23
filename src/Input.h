@@ -2,6 +2,7 @@
 #define __INPUT__
 
 #include <vector>
+#include <SDL2/SDL.h>
 
 enum mouse_buttons {
 	LEFT = 0,
@@ -23,6 +24,13 @@ public:
 private:
 	Input();
 	~Input();
+
+	void onKeyDown();
+	void onKeyUp();
+
+	void onMouseMove( SDL_Event& event );
+	void onMouseButtonDown( SDL_Event& event );
+	void onMouseButtonUp( SDL_Event& event );
 	
 	static Input* s_pInstance;
 	std::vector<bool> m_mouseButtonStates;
