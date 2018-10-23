@@ -32,6 +32,7 @@ private:
 	void onMouseMove( SDL_Event& event );
 	void onMouseButtonDown( SDL_Event& event );
 	void onMouseButtonUp( SDL_Event& event );
+	bool getMouseButtonState( int buttonNumber );
 	
 	static Input* s_pInstance;
 	const Uint8* m_keystates;
