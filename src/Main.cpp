@@ -3,6 +3,7 @@
 
 #include "Main.h"
 #include "Game.h"
+#include "Timer.h"
 
 int main( int argc, char* argv[] ) {
 	Uint32 Timer = SDL_GetTicks();
