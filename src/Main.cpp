@@ -6,7 +6,7 @@ int main() {
 	Timer Clock;
 	Clock.init( DELAY_RENDERER, DELAY_UPDATE_BOARD );
 
-	TheGame::Instance()->init( GAME_WIDTH, GAME_HEIGHT );
+	TheGame::Instance()->init( GAME_WIDTH, GAME_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT );
 	while( TheGame::Instance()->running() ) {
 		TheGame::Instance()->handleEvents();
 

@@ -6,7 +6,7 @@ class SDL_Window;
 
 class Graphics {
 public:
-	bool init( int screenWidth, int screenHeight );
+	bool init( const int screenWidth, const int screenHeight );
 	void drawBoard();
 	void clean();
 

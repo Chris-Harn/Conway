@@ -5,7 +5,7 @@ class Board;
 
 class Game {
 public:
-	bool init( const int boardWidth, const int boardHeight );
+	bool init( const int boardWidth, const int boardHeight, const int screenWidth, const int screenHeight );
 	void render();
 	void update();
 	void handleEvents();

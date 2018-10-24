@@ -11,6 +11,7 @@ enum mouse_buttons {
 };
 class Input {
 public:
+	void init();
 	void update();
 	void clean();
 
@@ -24,7 +25,6 @@ public:
 	bool onKeyDown( SDL_Scancode key );
 private:
 	Input();
-	~Input();
 
 	void onKeyDown();
 	void onKeyUp();

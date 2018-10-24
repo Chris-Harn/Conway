@@ -1,7 +1,9 @@
 #include "Game.h"
 
+
 #include "Board.h"
 #include "Input.h"
+#include "Graphics.h"
 
 Game* Game::s_pInstance = 0;
 
@@ -13,9 +15,11 @@ Game::~Game() {
 
 }
 
-bool Game::init( const int boardWidth, const int boardHeight ) {
+bool Game::init( const int boardWidth, const int boardHeight, const int screenWidth, const int screenHeight ) {
+	TheBoard::instance()->init( boardWidth, boardHeight );
+	TheGraphics::instance()->init( screenWidth, screenHeight );
 
-	return 0;
+	return true;
 }
 
 void Game::render() {
