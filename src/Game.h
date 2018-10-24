@@ -27,7 +27,6 @@ public:
 private:
 	Game();
 	~Game();
-	Board *m_pboard;
 	bool m_brunning;
 	bool m_bpaused;
 	static Game* s_pInstance;

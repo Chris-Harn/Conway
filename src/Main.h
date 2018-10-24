@@ -16,4 +16,11 @@ const int SCREEN_HEIGHT = 480;
 const int CELL_SIZE_X = 2;
 const int CELL_SIZE_Y = 2;
 
+// Drawing Context
+enum Draw {
+	CONSOLE = 0,
+	SDL = 1
+};
+
+
 #endif

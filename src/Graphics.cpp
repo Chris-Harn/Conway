@@ -1,10 +1,12 @@
 #include "Graphics.h"
 
 #include <SDL2/SDL.h>
+#include <iostream>
 
-Graphics::Graphics() {
-	m_prenderer = NULL;
-	m_pwindow = NULL;
+Graphics* Graphics::s_pinstance = 0;
+
+Graphics::Graphics() : m_prenderer( 0 ), m_pwindow( 0 ) {
+
 }
 
 Graphics::~Graphics() {
@@ -19,7 +21,7 @@ bool Graphics::init( const int screenWidth, const int screenHeight ) {
 			m_prenderer = SDL_CreateRenderer( m_pwindow, -1, 0 );
 		}
 	} else {
-		return 1;
+		return false;
 	}
 
 	SDL_SetRenderDrawColor( m_prenderer, 0, 0, 0, 255 );
@@ -39,4 +41,12 @@ void Graphics::clean() {
 
 void Graphics::drawBoard() {
 
+}
+
+void Graphics::drawX() {
+	std::cout << "X";
+}
+
+void Graphics::drawEmpty() {
+	std::cout << "-";
 }
