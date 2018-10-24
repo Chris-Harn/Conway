@@ -5,9 +5,12 @@
 #include "Input.h"
 #include "Graphics.h"
 
+// for testing
+#include <iostream>
+
 Game* Game::s_pInstance = 0;
 
-Game::Game() : m_brunning( true ), m_bpaused( true ) {
+Game::Game() : m_brunning( true ), m_bpaused( false ) {
 	
 }
 
@@ -18,23 +21,20 @@ Game::~Game() {
 bool Game::init( const int boardWidth, const int boardHeight, const int screenWidth, const int screenHeight ) {
 	TheBoard::instance()->init( boardWidth, boardHeight );
 	TheGraphics::instance()->init( screenWidth, screenHeight );
+	TheInputHandler::Instance()->init();
 
 	return true;
 }
 
 void Game::render() {
-	/*
-	m_pboard->clearScreen();
-	m_pboard->drawBoard();
-	*/
+	TheBoard::instance()->clearScreen();
+	TheBoard::instance()->drawBoard();
 //	m_pboard->drawNumbers(); // shows neighbor cell counts
 }
 
 void Game::update() {
-	/*
-	m_pboard->countNeighbors();
-	m_pboard->updateBoard();
-	*/
+	TheBoard::instance()->countNeighbors();
+	TheBoard::instance()->updateBoard();
 }
 
 void Game::handleEvents() {
@@ -49,6 +49,10 @@ void Game::handleEvents() {
 }
 
 void Game::clean() {
+	TheBoard::instance()->clean();
+	TheGraphics::instance()->clean();
+	TheInputHandler::Instance()->clean();
+
 	/*
 	if( m_pboard != 0 ) {
 		delete m_pboard;

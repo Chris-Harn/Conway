@@ -7,12 +7,15 @@ class SDL_Window;
 class Graphics {
 public:
 	bool init( const int screenWidth, const int screenHeight );
-	void drawBoard();
 	void clean();
 
 	// iostream
+	void drawBoard();
+	void clearScreen();
+	void nextLine();
 	void drawX();
 	void drawEmpty();
+
 
 	static Graphics* instance() {
 		if( s_pinstance == 0 ) {

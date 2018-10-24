@@ -5,19 +5,14 @@
 Input* Input::s_pInstance = 0;
 
 Input::Input() {
+}
+
+void Input::init() {
 	for( int i = 0; i < 3; i++ ) {
 		m_mouseButtonStates.push_back( false );
 	}
 
 	m_keystates = SDL_GetKeyboardState(0);
-}
-
-Input::~Input() {
-
-}
-
-void Input::init() {
-
 }
 
 void Input::update() {

@@ -9,6 +9,7 @@ enum mouse_buttons {
 	MIDDLE = 1,
 	Right = 2
 };
+
 class Input {
 public:
 	void init();

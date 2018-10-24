@@ -1,10 +1,11 @@
 #include "Tile.h"
 
+#include "Graphics.h"
+
 #include <iostream>
 
-Tile::Tile() {
-	m_balive = false;
-	numberOfLiveNeighbors = 0;
+Tile::Tile() : m_balive( 0 ), numberOfLiveNeighbors( 0 ) {
+
 }
 
 Tile::~Tile() {
@@ -12,10 +13,15 @@ Tile::~Tile() {
 }
 
 void Tile::draw() {
-	if( m_balive ) {
-		std::cout << "X";
+	std::cout << "inside draw..\n";
+//	( m_balive ) ? TheGraphics::instance()->drawX() : TheGraphics::instance()->drawEmpty();
+      
+	if( m_balive == true )	{
+		TheGraphics::instance()->drawX();
+		//std::cout << "X";
 	} else {
-		std::cout << "-";
+		TheGraphics::instance()->drawEmpty();
+		//std::cout << "-";
 	}
 }
 

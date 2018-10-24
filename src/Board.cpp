@@ -16,6 +16,8 @@ Board::Board() : m_tableWidth( 0 ), m_tableHeight( 0 ), m_ptable( 0 ) {
 }
 
 void Board::init( int width, int height ) {
+	m_tableWidth = width;
+	m_tableHeight = height;
 	m_ptable = new Tile[ width * height ];
 	
 	// create glider in middle to test logic
@@ -36,7 +38,7 @@ void Board::clean() {
 }
 
 void Board::clearScreen() {
-	std::cout << "\x1B[2J\x1B[H";
+	TheGraphics::instance()->clearScreen();
 }
 
 void Board::drawBoard() {
@@ -44,9 +46,10 @@ void Board::drawBoard() {
 	for( int j = 0; j < m_tableHeight; j++ ) {
 		for( int i = 0; i < m_tableWidth; i++ ) {
 			currentNumber = i + ( j * m_tableWidth );	
-			m_ptable[ currentNumber ].draw();
+			( m_ptable[ currentNumber ].alive() ) ? TheGraphics::instance()->drawX() : TheGraphics::instance()->drawEmpty();
+			//m_ptable[ currentNumber ].draw();
 		}
-		std::cout << "\n";
+		TheGraphics::instance()->nextLine();
 	}
 }
 
