@@ -7,7 +7,7 @@ class Board;
 
 class Game {
 public:
-	bool init( const int boardWidth, const int boardHeight, const int screenWidth, const int screenHeight );
+	bool init( const int boardWidth, const int boardHeight );
 	void render();
 	void update();
 	void handleEvents();
@@ -33,8 +33,6 @@ private:
 	bool m_brunning;
 	bool m_bpaused;
 	static Game* s_pInstance;
-	SDL_Renderer *m_prenderer;
-	SDL_Window *m_pwindow;
 };
 
 typedef Game TheGame;
