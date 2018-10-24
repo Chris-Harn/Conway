@@ -27,7 +27,6 @@ private:
 	Board();
 	int m_tableWidth;
 	int m_tableHeight;
-	Board *m_pboard;
 	Tile *m_ptable;
 	static Board *s_pinstance;
 };
