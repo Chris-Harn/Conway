@@ -1,8 +1,6 @@
 #ifndef __GAME__
 #define __GAME__
 
-#include <SDL2/SDL.h>
-
 class Board;
 
 class Game {

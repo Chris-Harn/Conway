@@ -3,8 +3,6 @@
 #include "Board.h"
 #include "Input.h"
 
-#include <cstddef>
-
 Game* Game::s_pInstance = 0;
 
 Game::Game() : m_pboard( 0 ), m_brunning( true ), m_bpaused( true ) {

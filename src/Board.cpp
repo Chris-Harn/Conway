@@ -1,10 +1,9 @@
 #include "Board.h"
 #include "Tile.h"
 
-#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <iostream>
 
 Board::Board( int width, int height ) : m_tableWidth( width ), m_tableHeight( height ), m_pTable( 0 ) {
 	m_pTable = new Tile[ width * height ];
