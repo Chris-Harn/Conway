@@ -20,7 +20,9 @@ Game::~Game() {
 
 bool Game::init( const int boardWidth, const int boardHeight, const int screenWidth, const int screenHeight ) {
 	TheBoard::instance()->init( boardWidth, boardHeight );
-	TheGraphics::instance()->init( screenWidth, screenHeight );
+	if( TheGraphics::instance()->init( screenWidth, screenHeight ) ) {
+		return false;
+	}
 	TheInputHandler::instance()->init();
 
 	return true;

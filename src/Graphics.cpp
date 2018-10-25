@@ -15,8 +15,17 @@ bool Graphics::init( const int screenWidth, const int screenHeight ) {
 
 		if( m_pwindow != 0 ) {
 			m_prenderer = SDL_CreateRenderer( m_pwindow, -1, 0 );
+		} else {
+			SDL_LogError( SDL_LOG_CATEGORY_APPLICATION,
+					"Initialize_display - SDL_CreateWindowAndRenderer: %s\n",
+					SDL_GetError() );
+			return false;
+
 		}
 	} else {
+		SDL_LogError( SDL_LOG_CATEGORY_APPLICATION,
+				"Initialize_display - SDL_Init: %s\n",
+				SDL_GetError() );
 		return false;
 	}
 
