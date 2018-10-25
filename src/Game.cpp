@@ -10,7 +10,7 @@
 
 Game* Game::s_pInstance = 0;
 
-Game::Game() : m_brunning( true ), m_bpaused( false ) {
+Game::Game() : m_brunning( true ), m_bpaused( true ) {
 	
 }
 

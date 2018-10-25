@@ -11,8 +11,7 @@ int main() {
 		TheGame::Instance()->handleEvents();
 
 		if( Clock.timeForRender() ) {
-			if( Clock.timeForUpdatingBoard() ) {
-			//if( !TheGame::Instance()->gamePaused() && Clock.timeForUpdatingBoard() ) {
+			if( !TheGame::Instance()->gamePaused() && Clock.timeForUpdatingBoard() ) {
 				TheGame::Instance()->update();
 			}
 
