@@ -1,6 +1,5 @@
 #include "Game.h"
 
-
 #include "Board.h"
 #include "Input.h"
 #include "Graphics.h"
@@ -10,7 +9,7 @@
 
 Game* Game::s_pinstance = 0;
 
-Game::Game() : m_brunning( true ), m_bpaused( true ) {
+Game::Game() : m_brunning( true ), m_bpaused( false ) {
 	
 }
 
@@ -18,7 +17,7 @@ bool Game::init( const int boardWidth, const int boardHeight, const int screenWi
 	TheBoard::instance()->init( boardWidth, boardHeight );
 	if( TheGraphics::instance()->init( screenWidth, screenHeight ) ) {
 		return false;
-	}
+	}	
 	TheInputHandler::instance()->init();
 
 	return true;

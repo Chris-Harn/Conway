@@ -3,12 +3,12 @@
 #include "Timer.h"
 
 int main() {
-	Timer Clock;
-	Clock.init( DELAY_RENDERER, DELAY_UPDATE_BOARD );
-
 	if( TheGame::instance()->init( GAME_WIDTH, GAME_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT ) ) {
 		return 1;
 	}
+
+	Timer Clock;
+	Clock.init( DELAY_RENDERER, DELAY_UPDATE_BOARD );
 
 	while( TheGame::instance()->running() ) {
 		TheGame::instance()->handleEvents();

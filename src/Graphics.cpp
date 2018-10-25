@@ -10,7 +10,7 @@ Graphics::Graphics() : m_prenderer( 0 ), m_pwindow( 0 ) {
 }
 
 bool Graphics::init( const int screenWidth, const int screenHeight ) {
-	if( SDL_Init( SDL_INIT_VIDEO ) >= 0 ) {
+	if( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_TIMER ) >= 0 ) {
 		m_pwindow = SDL_CreateWindow( "Conway's Game of Life", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, screenWidth, screenHeight, SDL_WINDOW_SHOWN );
 
 		if( m_pwindow != 0 ) {

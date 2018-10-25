@@ -19,7 +19,7 @@ void Board::init( int width, int height ) {
 	
 	// create glider in middle to test logic
 	int currentNumber = m_tableWidth/2 + ( (m_tableHeight / 2) * m_tableWidth );
-	m_ptable[ currentNumber ].setLive( 3 ); // good
+	m_ptable[ currentNumber ].setLive( 3 );
 	m_ptable[ currentNumber + 1].setLive( 3 );
 	m_ptable[ currentNumber + 1 - m_tableWidth ].setLive( 3 );
 	m_ptable[ currentNumber - 1 - m_tableWidth ].setLive( 3 );
@@ -55,7 +55,6 @@ void Board::drawNumbers() {
 		for( int i = 0; i < m_tableWidth; i++ ) {
 			currentNumber = i + ( j * m_tableWidth );	
 			TheGraphics::instance()->drawInt( m_ptable[ currentNumber].numberAlive() );
-			//m_ptable[ currentNumber ].drawNumber();
 		}
 		TheGraphics::instance()->nextLine();
 	}
