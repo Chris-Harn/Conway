@@ -1,0 +1,9 @@
+# Compiled Object Files
+*.slow
+*.lo
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
