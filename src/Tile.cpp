@@ -2,8 +2,6 @@
 
 #include "Graphics.h"
 
-#include <iostream>
-
 Tile::Tile() : m_balive( 0 ), numberOfLiveNeighbors( 0 ) {
 
 }
@@ -13,16 +11,7 @@ Tile::~Tile() {
 }
 
 void Tile::draw() {
-	std::cout << "inside draw..\n";
-//	( m_balive ) ? TheGraphics::instance()->drawX() : TheGraphics::instance()->drawEmpty();
-      
-	if( m_balive == true )	{
-		TheGraphics::instance()->drawX();
-		//std::cout << "X";
-	} else {
-		TheGraphics::instance()->drawEmpty();
-		//std::cout << "-";
-	}
+	( m_balive ) ? TheGraphics::instance()->drawX() : TheGraphics::instance()->drawEmpty();
 }
 
 void Tile::flip() {
