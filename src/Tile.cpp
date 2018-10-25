@@ -1,17 +1,11 @@
 #include "Tile.h"
 
-#include "Graphics.h"
-
 Tile::Tile() : m_balive( 0 ), numberOfLiveNeighbors( 0 ) {
 
 }
 
 Tile::~Tile() {
 
-}
-
-void Tile::draw() {
-	( m_balive ) ? TheGraphics::instance()->drawX() : TheGraphics::instance()->drawEmpty();
 }
 
 void Tile::flip() {

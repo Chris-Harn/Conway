@@ -4,9 +4,6 @@
 #include "Input.h"
 #include "Graphics.h"
 
-// for testing
-#include <iostream>
-
 Game* Game::s_pinstance = 0;
 
 Game::Game() : m_brunning( true ), m_bpaused( false ) {

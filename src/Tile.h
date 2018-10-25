@@ -7,7 +7,6 @@ public:
 	~Tile();
 
 	int alive();
-	void draw();
 	int numberAlive();
 	void flip();
 	void setLive( int liveNeighbors );
