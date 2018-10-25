@@ -8,7 +8,7 @@
 // for testing
 #include <iostream>
 
-Game* Game::s_pInstance = 0;
+Game* Game::s_pinstance = 0;
 
 Game::Game() : m_brunning( true ), m_bpaused( true ) {
 	
@@ -40,11 +40,11 @@ void Game::update() {
 void Game::handleEvents() {
 	TheInputHandler::Instance()->update();
 	if( TheInputHandler::Instance()->onKeyDown( SDL_SCANCODE_SPACE ) ) {
-		TheGame::Instance()->unpauseBoard();
+		TheGame::instance()->unpauseBoard();
 	}
 
 	if( TheInputHandler::Instance()->onKeyDown( SDL_SCANCODE_RETURN ) ) {
-		TheGame::Instance()->pauseBoard();
+		TheGame::instance()->pauseBoard();
 	}
 }
 
@@ -52,13 +52,6 @@ void Game::clean() {
 	TheBoard::instance()->clean();
 	TheGraphics::instance()->clean();
 	TheInputHandler::Instance()->clean();
-
-	/*
-	if( m_pboard != 0 ) {
-		delete m_pboard;
-		m_pboard = NULL;
-	}
-	*/
 }
 
 void Game::pauseBoard() {

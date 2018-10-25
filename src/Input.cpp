@@ -20,7 +20,7 @@ void Input::update() {
 	while( SDL_PollEvent( &event ) ) {
 		switch( event.type ) {
 			case SDL_QUIT:
-				TheGame::Instance()->exit();
+				TheGame::instance()->exit();
 				break;
 			case SDL_MOUSEMOTION:
 				onMouseMove( event );

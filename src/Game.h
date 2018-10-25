@@ -16,12 +16,11 @@ public:
 	void pauseBoard();
 	void unpauseBoard();
 	void exit() { m_brunning = false; }
-	static Game* Instance() {
-		if( s_pInstance == 0 ) {
-			s_pInstance = new Game();
-			return s_pInstance;	
+	static Game* instance() {
+		if( s_pinstance == 0 ) {
+			s_pinstance = new Game();
 		}
-		return s_pInstance;
+		return s_pinstance;
 	}
 
 private:
@@ -29,7 +28,7 @@ private:
 	~Game();
 	bool m_brunning;
 	bool m_bpaused;
-	static Game* s_pInstance;
+	static Game* s_pinstance;
 };
 
 typedef Game TheGame;

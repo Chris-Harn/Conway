@@ -6,19 +6,19 @@ int main() {
 	Timer Clock;
 	Clock.init( DELAY_RENDERER, DELAY_UPDATE_BOARD );
 
-	TheGame::Instance()->init( GAME_WIDTH, GAME_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT );
-	while( TheGame::Instance()->running() ) {
-		TheGame::Instance()->handleEvents();
+	TheGame::instance()->init( GAME_WIDTH, GAME_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT );
+	while( TheGame::instance()->running() ) {
+		TheGame::instance()->handleEvents();
 
 		if( Clock.timeForRender() ) {
-			if( !TheGame::Instance()->gamePaused() && Clock.timeForUpdatingBoard() ) {
-				TheGame::Instance()->update();
+			if( !TheGame::instance()->gamePaused() && Clock.timeForUpdatingBoard() ) {
+				TheGame::instance()->update();
 			}
 
-			TheGame::Instance()->render();
+			TheGame::instance()->render();
 		}
 	}	
-	TheGame::Instance()->clean();
+	TheGame::instance()->clean();
 
 	return 0;
 }
