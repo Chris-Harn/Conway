@@ -6,9 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// remove to Graphics class
-#include <iostream>
-
 Board* Board::s_pinstance = 0;
 
 Board::Board() : m_tableWidth( 0 ), m_tableHeight( 0 ), m_ptable( 0 ) {
@@ -47,7 +44,6 @@ void Board::drawBoard() {
 		for( int i = 0; i < m_tableWidth; i++ ) {
 			currentNumber = i + ( j * m_tableWidth );	
 			( m_ptable[ currentNumber ].alive() ) ? TheGraphics::instance()->drawX() : TheGraphics::instance()->drawEmpty();
-			//m_ptable[ currentNumber ].draw();
 		}
 		TheGraphics::instance()->nextLine();
 	}
@@ -58,14 +54,14 @@ void Board::drawNumbers() {
 	for( int j = 0; j < m_tableHeight; j++ ) {
 		for( int i = 0; i < m_tableWidth; i++ ) {
 			currentNumber = i + ( j * m_tableWidth );	
-			m_ptable[ currentNumber ].drawNumber();
+			TheGraphics::instance()->drawInt( m_ptable[ currentNumber].numberAlive() );
+			//m_ptable[ currentNumber ].drawNumber();
 		}
-		std::cout << "\n";
+		TheGraphics::instance()->nextLine();
 	}
 }
 
 void Board::countNeighbors() {
-	std::cout << "Inside count neighbor.\n";
 	int currentNumber;
 	int livingNeighbors;
 	for( int j = 0; j < m_tableHeight; j++ ) {
@@ -106,8 +102,6 @@ void Board::countNeighbors() {
 			if( ( j + 1 < m_tableHeight ) && ( i + 1 < m_tableWidth ) )
 				livingNeighbors += m_ptable[ currentNumber + 1 + m_tableWidth ].alive();
 
-			if( livingNeighbors >= 3 ) 
-					std::cout << "Setting a cell to live.\n";
 			// make current number have those numbers now
 			m_ptable[ currentNumber ].setLive( livingNeighbors );
 		}

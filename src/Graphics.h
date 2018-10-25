@@ -15,7 +15,7 @@ public:
 	void nextLine();
 	void drawX();
 	void drawEmpty();
-
+	void drawInt( int number );
 
 	static Graphics* instance() {
 		if( s_pinstance == 0 ) {
@@ -27,7 +27,6 @@ public:
 
 private:
 	Graphics();
-	~Graphics();
 	SDL_Renderer *m_prenderer;
 	SDL_Window *m_pwindow;
 	static Graphics *s_pinstance;

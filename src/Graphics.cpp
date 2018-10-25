@@ -9,10 +9,6 @@ Graphics::Graphics() : m_prenderer( 0 ), m_pwindow( 0 ) {
 
 }
 
-Graphics::~Graphics() {
-
-}
-
 bool Graphics::init( const int screenWidth, const int screenHeight ) {
 	/*
 	if( SDL_Init( SDL_INIT_VIDEO ) >= 0 ) {
@@ -61,4 +57,8 @@ void Graphics::drawX() {
 
 void Graphics::drawEmpty() {
 	std::cout << "-";
+}
+
+void Graphics::drawInt( int number ) {
+	std::cout << number;
 }

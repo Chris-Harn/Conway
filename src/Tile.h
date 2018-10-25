@@ -8,7 +8,7 @@ public:
 
 	int alive();
 	void draw();
-	void drawNumber();
+	int numberAlive();
 	void flip();
 	void setLive( int liveNeighbors );
 private:

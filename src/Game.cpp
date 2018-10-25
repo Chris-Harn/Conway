@@ -29,7 +29,7 @@ bool Game::init( const int boardWidth, const int boardHeight, const int screenWi
 void Game::render() {
 	TheBoard::instance()->clearScreen();
 	TheBoard::instance()->drawBoard();
-//	m_pboard->drawNumbers(); // shows neighbor cell counts
+	// TheBoard::instance()->drawNumbers(); // shows neighbor cell counts
 }
 
 void Game::update() {
