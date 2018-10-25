@@ -6,7 +6,7 @@
 
 Game* Game::s_pinstance = 0;
 
-Game::Game() : m_brunning( true ), m_bpaused( false ) {
+Game::Game() : m_brunning( true ), m_bpaused( true ) {
 	
 }
 
@@ -39,12 +39,16 @@ void Game::handleEvents() {
 	if( TheInputHandler::instance()->onKeyDown( SDL_SCANCODE_RETURN ) ) {
 		TheGame::instance()->pauseBoard();
 	}
+
+	if( TheInputHandler::instance()->onKeyDown( SDL_SCANCODE_ESCAPE ) ) {
+		m_brunning = false;
+	}
 }
 
 void Game::clean() {
 	TheBoard::instance()->clean();
-	TheGraphics::instance()->clean();
 	TheInputHandler::instance()->clean();
+	TheGraphics::instance()->clean();
 }
 
 void Game::pauseBoard() {
