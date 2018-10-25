@@ -4,6 +4,10 @@
 *.o
 *.obj
 
+# Swap Files from Vim
+*.swp
+*.swo
+
 # Executables
 *.exe
 *.out
