@@ -1,7 +1,7 @@
 #include "Timer.h"
 
-Timer::Timer() {
-	m_timerForRendering = m_timerForUpdatingBoard = SDL_GetTicks();
+Timer::Timer() : m_timerForRendering( SDL_GetTicks() ), m_timerForUpdatingBoard( SDL_GetTicks() ) {
+
 }
 
 Timer::~Timer() {
