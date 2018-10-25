@@ -67,20 +67,27 @@ void Input::onKeyUp() {
 }
 
 void Input::onMouseMove( SDL_Event& event ) {
+	/*
 	if( event.type == SDL_MOUSEMOTION ) {
 		// do nothing at this point
 	}
+	*/
 }
 
 void Input::onMouseButtonDown( SDL_Event& event ) {
+	/*
 	if( event.button.button == SDL_BUTTON_LEFT ) {
 		m_mouseButtonStates[LEFT] = true;
-	} }
+	}
+	*/
+}
 
 void Input::onMouseButtonUp( SDL_Event& event ) {
+	/*
 	if( event.button.button == SDL_BUTTON_LEFT ) {
 		m_mouseButtonStates[LEFT] = false;
 	}
+	*/
 }
 
 bool Input::getMouseButtonState( int buttonNumber ) {
