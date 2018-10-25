@@ -25,7 +25,6 @@ public:
 
 private:
 	Game();
-	~Game();
 	bool m_brunning;
 	bool m_bpaused;
 	static Game* s_pinstance;

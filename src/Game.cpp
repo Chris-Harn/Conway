@@ -14,10 +14,6 @@ Game::Game() : m_brunning( true ), m_bpaused( true ) {
 	
 }
 
-Game::~Game() {
-
-}
-
 bool Game::init( const int boardWidth, const int boardHeight, const int screenWidth, const int screenHeight ) {
 	TheBoard::instance()->init( boardWidth, boardHeight );
 	if( TheGraphics::instance()->init( screenWidth, screenHeight ) ) {
