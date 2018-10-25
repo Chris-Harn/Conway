@@ -21,7 +21,7 @@ Game::~Game() {
 bool Game::init( const int boardWidth, const int boardHeight, const int screenWidth, const int screenHeight ) {
 	TheBoard::instance()->init( boardWidth, boardHeight );
 	TheGraphics::instance()->init( screenWidth, screenHeight );
-	TheInputHandler::Instance()->init();
+	TheInputHandler::instance()->init();
 
 	return true;
 }
@@ -38,12 +38,12 @@ void Game::update() {
 }
 
 void Game::handleEvents() {
-	TheInputHandler::Instance()->update();
-	if( TheInputHandler::Instance()->onKeyDown( SDL_SCANCODE_SPACE ) ) {
+	TheInputHandler::instance()->update();
+	if( TheInputHandler::instance()->onKeyDown( SDL_SCANCODE_SPACE ) ) {
 		TheGame::instance()->unpauseBoard();
 	}
 
-	if( TheInputHandler::Instance()->onKeyDown( SDL_SCANCODE_RETURN ) ) {
+	if( TheInputHandler::instance()->onKeyDown( SDL_SCANCODE_RETURN ) ) {
 		TheGame::instance()->pauseBoard();
 	}
 }
@@ -51,7 +51,7 @@ void Game::handleEvents() {
 void Game::clean() {
 	TheBoard::instance()->clean();
 	TheGraphics::instance()->clean();
-	TheInputHandler::Instance()->clean();
+	TheInputHandler::instance()->clean();
 }
 
 void Game::pauseBoard() {

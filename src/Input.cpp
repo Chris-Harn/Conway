@@ -2,7 +2,7 @@
 
 #include "Game.h"
 
-Input* Input::s_pInstance = 0;
+Input* Input::s_pinstance = 0;
 
 Input::Input() {
 }

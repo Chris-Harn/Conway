@@ -16,11 +16,11 @@ public:
 	void update();
 	void clean();
 
-	static Input* Instance() {
-		if( s_pInstance == 0 ) {
-			s_pInstance = new Input();
+	static Input* instance() {
+		if( s_pinstance == 0 ) {
+			s_pinstance = new Input();
 		}
-		return s_pInstance;
+		return s_pinstance;
 	}
 
 	bool onKeyDown( SDL_Scancode key );
@@ -35,7 +35,7 @@ private:
 	void onMouseButtonUp( SDL_Event& event );
 	bool getMouseButtonState( int buttonNumber );
 	
-	static Input* s_pInstance;
+	static Input* s_pinstance;
 	const Uint8* m_keystates;
 	std::vector<bool> m_mouseButtonStates;
 };
