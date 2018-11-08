@@ -8,7 +8,7 @@ const int CELL_SIZE_X = 4;
 const int CELL_SIZE_Y = 4;
 
 // Gameplay Loop
-const double FPS = 20; // per sec
+const double FPS = 10; // per sec
 const double UPDATE_SIM = 10; // per sec
 const double DELAY_RENDERER = 1000 / FPS;
 const double DELAY_UPDATE_BOARD = 1000 / UPDATE_SIM;
