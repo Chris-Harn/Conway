@@ -1,6 +1,8 @@
 #ifndef __GRAPHICS__
 #define __GRAPHICS__
 
+#include "Main.h"
+
 class SDL_Renderer;
 class SDL_Window;
 
@@ -10,6 +12,7 @@ public:
 	void clean();
 
 	// console commands
+	// depericated all these functions
 	void drawScreen();
 	void clearScreen();
 	void nextLine();
@@ -18,11 +21,11 @@ public:
 	void drawInt( int number );
 
 	// SDL commands
-	void drawSDLBoard();
-	void clearSDLBoard();
-	void updatedSDLBoard( int x, int y );
-	void drawAlive( int x, int y );
-	void drawDead( int x, int y );
+	void drawSDLBoard(); // flips m_prenderer
+	void clearSDLBoard(); // changes m_prenderer to black - used only once
+	void updatedSDLBoard( int x, int y ); // fast - future implementation
+	void drawAlive( int x, int y ); // slow method - only used to set up board
+	void drawDead( int x, int y ); // slow method - only used to set up board
 
 	static Graphics* instance() {
 		if( s_pinstance == 0 ) {

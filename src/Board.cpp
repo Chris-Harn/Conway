@@ -36,7 +36,7 @@ void Board::clean() {
 
 void Board::clearScreen() {
 	// console command
-	TheGraphics::instance()->clearScreen();
+	// TheGraphics::instance()->clearScreen();
 
 	// SDL command
 	TheGraphics::instance()->clearSDLBoard();
@@ -59,10 +59,10 @@ void Board::drawScreen() {
 	for( int j = 0; j < m_tableHeight; j++ ) {
 		for( int i = 0; i < m_tableWidth; i++ ) {
 			currentNumber = i + ( j * m_tableWidth );	
-			( m_ptable[ currentNumber ].alive() ) ? TheGraphics::instance()->drawX() : TheGraphics::instance()->drawEmpty();
+			( m_ptable[ currentNumber ].alive() ) ? TheGraphics::instance()->drawAlive( i, j ) : TheGraphics::instance()->drawDead( i, j );
 		}
-		TheGraphics::instance()->nextLine();
 	}
+	TheGraphics::instance()->drawSDLBoard();
 }
 
 void Board::drawNumbers() {

@@ -68,8 +68,7 @@ void Graphics::drawInt( int number ) {
 }
 
 void Graphics::drawSDLBoard() {
-	// use only once - will update only cells that change
-	
+	SDL_RenderPresent( m_prenderer );
 }
 
 void Graphics::clearSDLBoard() {
@@ -85,10 +84,25 @@ void Graphics::updatedSDLBoard( int x, int y ) {
 }
 
 void Graphics::drawAlive( int x, int y ) {
+	SDL_SetRenderDrawColor( m_prenderer, 255, 255, 255, 255 );	
+	SDL_Rect rectangle;
 
+	rectangle.x = x * CELL_SIZE_X;
+	rectangle.y = y * CELL_SIZE_Y; 
+	rectangle.w = CELL_SIZE_X;
+	rectangle.h = CELL_SIZE_Y;
+	SDL_RenderFillRect( m_prenderer, &rectangle );
 }
 
 void Graphics::drawDead( int x, int y ) {
+	SDL_SetRenderDrawColor( m_prenderer, 0, 0, 0, 255 );	
+	SDL_Rect rectangle;
+
+	rectangle.x = x * CELL_SIZE_X;
+	rectangle.y = y * CELL_SIZE_Y; 
+	rectangle.w = CELL_SIZE_X;
+	rectangle.h = CELL_SIZE_Y;
+	SDL_RenderFillRect( m_prenderer, &rectangle );
 
 }
 
