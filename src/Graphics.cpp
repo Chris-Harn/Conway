@@ -29,9 +29,8 @@ bool Graphics::init( const int screenWidth, const int screenHeight ) {
 		return false;
 	}
 
-	SDL_SetRenderDrawColor( m_prenderer, 0, 0, 0, 255 );
-	SDL_RenderClear( m_prenderer );
-	SDL_RenderPresent( m_prenderer );
+	clearSDLBoard();
+	drawSDLBoard();
 
 	return true;
 }
@@ -68,17 +67,18 @@ void Graphics::drawInt( int number ) {
 	std::cout << number;
 }
 
-void drawSDLBoard() {
-
+void Graphics::drawSDLBoard() {
+	// use only once - will update only cells that change
 }
 
-void clearSLDBoard() {
-	// shouldn't use this function at all - remove at later date
+void Graphics::clearSDLBoard() {
+	// use only once - will setup board to draw on initially
+
 	SDL_SetRenderDrawColor( m_prenderer, 0, 0, 0, 255 );
 	SDL_RenderClear( m_prenderer );
 	SDL_RenderPresent( m_prenderer );
 }
 
-void updatedSDLBoard( int x, int y ) {
+void Graphics::updatedSDLBoard( int x, int y ) {
 
 }

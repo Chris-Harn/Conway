@@ -19,7 +19,7 @@ public:
 
 	// SDL commands
 	void drawSDLBoard();
-	void clearSLDBoard();
+	void clearSDLBoard();
 	void updatedSDLBoard( int x, int y );
 
 	static Graphics* instance() {
