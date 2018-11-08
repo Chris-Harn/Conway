@@ -9,13 +9,18 @@ public:
 	bool init( const int screenWidth, const int screenHeight );
 	void clean();
 
-	// iostream
+	// console commands
 	void drawScreen();
 	void clearScreen();
 	void nextLine();
 	void drawX();
 	void drawEmpty();
 	void drawInt( int number );
+
+	// SDL commands
+	void drawSDLBoard();
+	void clearSLDBoard();
+	void updatedSDLBoard( int x, int y );
 
 	static Graphics* instance() {
 		if( s_pinstance == 0 ) {

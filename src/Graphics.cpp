@@ -67,3 +67,17 @@ void Graphics::drawEmpty() {
 void Graphics::drawInt( int number ) {
 	std::cout << number;
 }
+
+void drawSDLBoard() {
+
+}
+
+void clearSLDBoard() {
+	SDL_SetRenderDrawColor( m_prenderer, 0, 0, 0, 255 );
+	SDL_RenderClear( m_prenderer );
+	SDL_RenderPresent( m_prenderer );
+}
+
+void updatedSDLBoard( int x, int y ) {
+
+}
