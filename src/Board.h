@@ -2,6 +2,7 @@
 #define __BOARD__
 
 class Tile;
+class ChangeList;
 
 class Board {
 public:
@@ -27,6 +28,7 @@ private:
 	int m_tableWidth;
 	int m_tableHeight;
 	Tile *m_ptable;
+	ChangeList *m_pflipList;
 	static Board *s_pinstance;
 };
 

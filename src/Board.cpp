@@ -1,6 +1,7 @@
 #include "Board.h"
 
 #include "Tile.h"
+#include "ChangeList.h"
 #include "Graphics.h"
 
 #include <stdio.h>
@@ -8,7 +9,7 @@
 
 Board* Board::s_pinstance = 0;
 
-Board::Board() : m_tableWidth( 0 ), m_tableHeight( 0 ), m_ptable( 0 ) {
+Board::Board() : m_tableWidth( 0 ), m_tableHeight( 0 ), m_ptable( 0 ), m_pflipList( 0 ) {
 
 }
 
@@ -16,6 +17,7 @@ void Board::init( int width, int height ) {
 	m_tableWidth = width;
 	m_tableHeight = height;
 	m_ptable = new Tile[ width * height ];
+	m_pflipList = new ChangeList( width * height );
 	
 	// create glider in middle to test logic
 	int currentNumber = m_tableWidth/2 + ( (m_tableHeight / 2) * m_tableWidth );
@@ -31,6 +33,10 @@ void Board::clean() {
 	if( m_ptable != 0 ) {
 		delete []m_ptable;
 		m_ptable = 0;
+	}
+
+	if( m_pflipList != 0 ) {
+		delete m_pflipList;
 	}
 }
 
