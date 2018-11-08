@@ -11,15 +11,6 @@ public:
 	bool init( const int screenWidth, const int screenHeight );
 	void clean();
 
-	// console commands
-	// depericated all these functions
-	void drawScreen();
-	void clearScreen();
-	void nextLine();
-	void drawX();
-	void drawEmpty();
-	void drawInt( int number );
-
 	// SDL commands
 	void drawSDLBoard(); // flips m_prenderer
 	void clearSDLBoard(); // changes m_prenderer to black - used only once

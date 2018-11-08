@@ -35,26 +35,12 @@ void Board::clean() {
 }
 
 void Board::clearScreen() {
-	// console command
-	// TheGraphics::instance()->clearScreen();
-
 	// SDL command
 	TheGraphics::instance()->clearSDLBoard();
 }
 
 void Board::drawScreen() {
 	int currentNumber;
-	/*	
-	// console command
-	for( int j = 0; j < m_tableHeight; j++ ) {
-		for( int i = 0; i < m_tableWidth; i++ ) {
-			currentNumber = i + ( j * m_tableWidth );	
-			( m_ptable[ currentNumber ].alive() ) ? TheGraphics::instance()->drawX() : TheGraphics::instance()->drawEmpty();
-		}
-		TheGraphics::instance()->nextLine();
-	}
-	*/
-
 	// SDL command
 	for( int j = 0; j < m_tableHeight; j++ ) {
 		for( int i = 0; i < m_tableWidth; i++ ) {
@@ -63,18 +49,6 @@ void Board::drawScreen() {
 		}
 	}
 	TheGraphics::instance()->drawSDLBoard();
-}
-
-void Board::drawNumbers() {
-	// console command
-	int currentNumber;
-	for( int j = 0; j < m_tableHeight; j++ ) {
-		for( int i = 0; i < m_tableWidth; i++ ) {
-			currentNumber = i + ( j * m_tableWidth );	
-			TheGraphics::instance()->drawInt( m_ptable[ currentNumber].numberAlive() );
-		}
-		TheGraphics::instance()->nextLine();
-	}
 }
 
 void Board::countNeighbors() {

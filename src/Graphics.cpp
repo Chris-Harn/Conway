@@ -43,30 +43,6 @@ void Graphics::clean() {
 	SDL_Quit();
 }
 
-void Graphics::drawScreen() {
-
-}
-
-void Graphics::clearScreen() {
-	std::cout << "\x1B[2J\x1B[H";
-}
-
-void Graphics::nextLine() {
-	std::cout << "\n";
-}
-
-void Graphics::drawX() {
-	std::cout << "X";
-}
-
-void Graphics::drawEmpty() {
-	std::cout << "-";
-}
-
-void Graphics::drawInt( int number ) {
-	std::cout << number;
-}
-
 void Graphics::drawSDLBoard() {
 	SDL_RenderPresent( m_prenderer );
 }
