@@ -73,6 +73,7 @@ void drawSDLBoard() {
 }
 
 void clearSLDBoard() {
+	// shouldn't use this function at all - remove at later date
 	SDL_SetRenderDrawColor( m_prenderer, 0, 0, 0, 255 );
 	SDL_RenderClear( m_prenderer );
 	SDL_RenderPresent( m_prenderer );
