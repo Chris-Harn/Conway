@@ -49,13 +49,12 @@ void Graphics::drawSDLBoard() {
 
 void Graphics::clearSDLBoard() {
 	// use only once - will setup board to draw on initially
-
 	SDL_SetRenderDrawColor( m_prenderer, 0, 0, 0, 255 );
 	SDL_RenderClear( m_prenderer );
 	SDL_RenderPresent( m_prenderer );
 }
 
-void Graphics::updatedSDLBoard( int x, int y ) {
+void Graphics::updateSDLBoard( int x, int y ) {
 
 }
 
