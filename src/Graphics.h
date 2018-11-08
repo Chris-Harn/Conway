@@ -21,6 +21,8 @@ public:
 	void drawSDLBoard();
 	void clearSDLBoard();
 	void updatedSDLBoard( int x, int y );
+	void drawAlive( int x, int y );
+	void drawDead( int x, int y );
 
 	static Graphics* instance() {
 		if( s_pinstance == 0 ) {

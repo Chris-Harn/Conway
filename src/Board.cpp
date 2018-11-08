@@ -39,11 +39,13 @@ void Board::clearScreen() {
 	TheGraphics::instance()->clearScreen();
 
 	// SDL command
+	TheGraphics::instance()->clearSDLBoard();
 }
 
 void Board::drawScreen() {
-	// console command
 	int currentNumber;
+	/*	
+	// console command
 	for( int j = 0; j < m_tableHeight; j++ ) {
 		for( int i = 0; i < m_tableWidth; i++ ) {
 			currentNumber = i + ( j * m_tableWidth );	
@@ -51,8 +53,16 @@ void Board::drawScreen() {
 		}
 		TheGraphics::instance()->nextLine();
 	}
+	*/
 
 	// SDL command
+	for( int j = 0; j < m_tableHeight; j++ ) {
+		for( int i = 0; i < m_tableWidth; i++ ) {
+			currentNumber = i + ( j * m_tableWidth );	
+			( m_ptable[ currentNumber ].alive() ) ? TheGraphics::instance()->drawX() : TheGraphics::instance()->drawEmpty();
+		}
+		TheGraphics::instance()->nextLine();
+	}
 }
 
 void Board::drawNumbers() {

@@ -69,6 +69,7 @@ void Graphics::drawInt( int number ) {
 
 void Graphics::drawSDLBoard() {
 	// use only once - will update only cells that change
+	
 }
 
 void Graphics::clearSDLBoard() {
@@ -82,3 +83,12 @@ void Graphics::clearSDLBoard() {
 void Graphics::updatedSDLBoard( int x, int y ) {
 
 }
+
+void Graphics::drawAlive( int x, int y ) {
+
+}
+
+void Graphics::drawDead( int x, int y ) {
+
+}
+
