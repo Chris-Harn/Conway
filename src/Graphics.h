@@ -10,7 +10,7 @@ public:
 	void clean();
 
 	// iostream
-	void drawBoard();
+	void drawScreen();
 	void clearScreen();
 	void nextLine();
 	void drawX();

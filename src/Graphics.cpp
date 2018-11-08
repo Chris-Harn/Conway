@@ -44,7 +44,7 @@ void Graphics::clean() {
 	SDL_Quit();
 }
 
-void Graphics::drawBoard() {
+void Graphics::drawScreen() {
 
 }
 

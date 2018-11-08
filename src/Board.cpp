@@ -35,10 +35,14 @@ void Board::clean() {
 }
 
 void Board::clearScreen() {
+	// console command
 	TheGraphics::instance()->clearScreen();
+
+	// SDL command
 }
 
-void Board::drawBoard() {
+void Board::drawScreen() {
+	// console command
 	int currentNumber;
 	for( int j = 0; j < m_tableHeight; j++ ) {
 		for( int i = 0; i < m_tableWidth; i++ ) {
@@ -47,9 +51,12 @@ void Board::drawBoard() {
 		}
 		TheGraphics::instance()->nextLine();
 	}
+
+	// SDL command
 }
 
 void Board::drawNumbers() {
+	// console command
 	int currentNumber;
 	for( int j = 0; j < m_tableHeight; j++ ) {
 		for( int i = 0; i < m_tableWidth; i++ ) {

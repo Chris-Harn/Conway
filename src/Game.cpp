@@ -22,7 +22,7 @@ bool Game::init( const int boardWidth, const int boardHeight, const int screenWi
 
 void Game::render() {
 	TheBoard::instance()->clearScreen();
-	TheBoard::instance()->drawBoard();
+	TheBoard::instance()->drawScreen();
 }
 
 void Game::update() {

@@ -9,7 +9,7 @@ public:
 	void clean();
 
 	void clearScreen();
-	void drawBoard();
+	void drawScreen();
 	void drawNumbers();
 	void countNeighbors();
 	void updateBoard();
