@@ -17,14 +17,15 @@ bool Game::init( const int boardWidth, const int boardHeight, const int screenWi
 	// initiate graphics
 	if( TheGraphics::instance()->init( screenWidth, screenHeight ) ) {
 		return true;
-	}	
+	}
 
-	TheInputHandler::instance()->init();
 
 	// do this to draw board for first time after initating graphics
 	TheBoard::instance()->clearScreen();
 	TheBoard::instance()->drawEntireScreen();
 	TheBoard::instance()->drawScreen();
+	
+	TheInputHandler::instance()->init();
 
 	return false;
 }

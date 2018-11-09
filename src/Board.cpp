@@ -3,9 +3,12 @@
 #include "Tile.h"
 #include "ChangeList.h"
 #include "Graphics.h"
+#include "Game.h"
 
 #include <stdio.h>
 #include <stdlib.h>
+
+#include <iostream>
 
 Board* Board::s_pinstance = 0;
 
@@ -110,6 +113,19 @@ void Board::countNeighbors() {
 		}
 	}
 
+}
+
+void Board::drawOnBoard( int x, int y ) {
+	std::cout << "Inside drawOnBoard.\n";
+	if( TheGame::instance()->gamePaused() == true ) {
+		int currentNumber = x + ( y * m_tableWidth );	
+		std::cout << "Drawing to " << currentNumber << ".\n";
+		std::cout << "Location X: " << x << "  Y: " << y << ".\n";
+
+
+		m_ptable[ currentNumber ].flip();	
+		TheGraphics::instance()->updateSDLBoard( x, y, m_ptable[ currentNumber ].alive() ); 
+	}
 }
 
 void Board::updateBoard() {

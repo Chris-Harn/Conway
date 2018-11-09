@@ -14,6 +14,7 @@ public:
 	void drawEntireScreen();
 	void countNeighbors();
 	void updateBoard();
+	void drawOnBoard( int x, int y );
 
 	int getTableWidth();
 	int getTableHeight();
