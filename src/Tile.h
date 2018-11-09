@@ -1,6 +1,13 @@
 #ifndef __TILE__
 #define __TILE__
 
+/**************************************************
+ *  Tile
+ *  Purpose: Data and needed functions to manipulate
+ *  tile data.
+ *
+ *************************************************/
+
 class Tile {
 public:
 	Tile();

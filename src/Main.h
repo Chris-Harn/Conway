@@ -1,11 +1,20 @@
 #ifndef __MAIN__
 #define __MAIN__
 
+/**************************************************
+ *  CS-11 
+ *  Purpose: Simulate Conway's Game of Life 
+ *
+ *  Author: Christopher Harn
+ *  Version: 1.0 11/09/2018*
+ *
+ *************************************************/
+
 // SDL Settings
 const int SCREEN_WIDTH = 1920;
 const int SCREEN_HEIGHT = 1080;
-const int CELL_SIZE_X = 4;
-const int CELL_SIZE_Y = 4;
+const int CELL_SIZE_X = 16;
+const int CELL_SIZE_Y = 16;
 
 // Gameplay Loop
 const double FPS = 30; // per sec

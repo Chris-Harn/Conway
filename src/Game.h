@@ -3,6 +3,13 @@
 
 class Board;
 
+/**************************************************
+ *  Game
+ *  Purpose: Abstracts simulation init, sim loop,
+ *  and cleanup.
+ *
+ *************************************************/
+
 class Game {
 public:
 	bool init( const int boardWidth, const int boardHeight, const int screenWidth, const int screenHeight );

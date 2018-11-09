@@ -4,6 +4,13 @@
 class Tile;
 class ChangeList;
 
+/**************************************************
+ *  Board
+ *  Purpose: Allocates and manipulates board. Also
+ *  commands what to draw.
+ *
+ *************************************************/
+
 class Board {
 public:
 	void init( int width, int height );

@@ -3,6 +3,14 @@
 
 #include <SDL2/SDL.h>
 
+/**************************************************
+ *  Timer Class
+ *  Purpose: Controls how often to render and how
+ *  often to update board. Seperated to improve
+ *  responsiveness.
+ *
+ *************************************************/
+
 class Timer {
 public:
 	Timer();

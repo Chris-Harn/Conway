@@ -1,4 +1,5 @@
 #include "Main.h"
+
 #include "Game.h"
 #include "Timer.h"
 #include "Message.h"
@@ -23,6 +24,7 @@ int main() {
 			TheGame::instance()->render();
 		}
 	}	
+
 	TheGame::instance()->clean();
 
 	return 0;

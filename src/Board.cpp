@@ -22,11 +22,10 @@ void Board::init( int width, int height ) {
 	m_ptable = new Tile[ width * height ];
 	m_pflipList = new ChangeList( width * height );
 
-
 	// create a series of gliders to test logic and performance
 	int currentNumber = 0;
 	for( int i = 0; i < 120; i++ ) {
-		currentNumber += i * m_tableWidth/10;
+		currentNumber += i * m_tableWidth / 10;
 		if( currentNumber < ( m_tableWidth * m_tableHeight - 10 ) ) {
 			m_ptable[ currentNumber ].setLive();
 			m_ptable[ currentNumber + 1].setLive();
@@ -98,15 +97,15 @@ void Board::countNeighbors() {
 				livingNeighbors += m_ptable[ currentNumber + 1 - m_tableWidth ].alive();
 
 			// bottom left
-			if( ( j + 1 < m_tableHeight ) && ( i - 1 >= 0 ) )
+			if( ( j + 1 <= m_tableHeight ) && ( i - 1 >= 0 ) )
 				livingNeighbors += m_ptable[ currentNumber - 1 + m_tableWidth ].alive();
 			
 			// bottom
-			if( j + 1 < m_tableHeight )
+			if( j + 1 <= m_tableHeight )
 				livingNeighbors += m_ptable[ currentNumber + m_tableWidth ].alive();
 
 			// bottom right
-			if( ( j + 1 < m_tableHeight ) && ( i + 1 < m_tableWidth ) )
+			if( ( j + 1 <= m_tableHeight ) && ( i + 1 < m_tableWidth ) )
 				livingNeighbors += m_ptable[ currentNumber + 1 + m_tableWidth ].alive();
 
 			// make current number have those numbers now

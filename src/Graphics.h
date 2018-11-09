@@ -6,6 +6,13 @@
 class SDL_Renderer;
 class SDL_Window;
 
+/**************************************************
+ *  Graphics Class
+ *  Purpose: Inits SDL window context and contains
+ *  all drawing functions.
+ *
+ *************************************************/
+
 class Graphics {
 public:
 	bool init( const int screenWidth, const int screenHeight );

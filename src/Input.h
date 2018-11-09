@@ -4,6 +4,14 @@
 #include <vector>
 #include <SDL2/SDL.h>
 
+/**************************************************
+ *  Input Handler
+ *  Purpose: Collects keyboard and mouse input to 
+ *  perform various functions on the board: pause, 
+ *  flip tile, draw shapes, and start simulation.
+ *
+ *************************************************/
+
 enum mouse_buttons {
 	LEFT = 0,
 	MIDDLE = 1,
