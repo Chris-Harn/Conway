@@ -64,22 +64,12 @@ void Graphics::updateSDLBoard( int x, int y, bool alive ) {
 
 void Graphics::drawAlive( int x, int y ) {
 	SDL_SetRenderDrawColor( m_prenderer, 255, 255, 255, 255 );	
-	SDL_Rect rectangle;
-
-	rectangle.x = x * CELL_SIZE_X;
-	rectangle.y = y * CELL_SIZE_Y; 
-	rectangle.w = CELL_SIZE_X;
-	rectangle.h = CELL_SIZE_Y;
+	SDL_Rect rectangle = { x * CELL_SIZE_X, y * CELL_SIZE_Y, CELL_SIZE_X, CELL_SIZE_Y };
 	SDL_RenderFillRect( m_prenderer, &rectangle );
 }
 
 void Graphics::drawDead( int x, int y ) {
 	SDL_SetRenderDrawColor( m_prenderer, 0, 0, 0, 255 );	
-	SDL_Rect rectangle;
-
-	rectangle.x = x * CELL_SIZE_X;
-	rectangle.y = y * CELL_SIZE_Y; 
-	rectangle.w = CELL_SIZE_X;
-	rectangle.h = CELL_SIZE_Y;
+	SDL_Rect rectangle = { x * CELL_SIZE_X, y * CELL_SIZE_Y, CELL_SIZE_X, CELL_SIZE_Y };
 	SDL_RenderFillRect( m_prenderer, &rectangle );
 }
