@@ -8,13 +8,16 @@ const int CELL_SIZE_X = 4;
 const int CELL_SIZE_Y = 4;
 
 // Gameplay Loop
-const double FPS = 60; // per sec
-const double UPDATE_SIM = 30; // per sec
+const double FPS = 30; // per sec
+const double UPDATE_SIM = 20; // per sec
 const double DELAY_RENDERER = 1000 / FPS;
 const double DELAY_UPDATE_BOARD = 1000 / UPDATE_SIM;
 
 // Board Settings 
 const int GAME_WIDTH = SCREEN_WIDTH / CELL_SIZE_X;
 const int GAME_HEIGHT = SCREEN_HEIGHT / CELL_SIZE_Y;
+const int REPRODUCE_NUMBER = 3;
+const int OVERPOPULATION_NUMBER = 3;
+const int ISOLATION_NUMBER = 2;
 
 #endif

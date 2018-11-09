@@ -1,5 +1,7 @@
 #include "Tile.h"
 
+#include "Main.h"
+
 Tile::Tile() : m_balive( 0 ), m_numberOfLiveNeighbors( 0 ) {
 
 }
@@ -10,6 +12,8 @@ Tile::~Tile() {
 
 bool Tile::findIfChanging() {
 	bool newStatus = m_balive;
+
+	/*
 	if ( m_numberOfLiveNeighbors < 2 ) {
 		newStatus = false;
 	} else if ( m_numberOfLiveNeighbors == 3 ) {
@@ -17,6 +21,13 @@ bool Tile::findIfChanging() {
 	} else if ( m_numberOfLiveNeighbors < 4 ) {
 		// do nothing
 	} else if ( m_numberOfLiveNeighbors > 3 ) {
+		newStatus = false;
+	}
+	*/
+
+	if( m_numberOfLiveNeighbors == REPRODUCE_NUMBER ) {
+		newStatus = true;
+	} else if( m_numberOfLiveNeighbors > OVERPOPULATION_NUMBER || m_numberOfLiveNeighbors < ISOLATION_NUMBER ) {
 		newStatus = false;
 	}
 

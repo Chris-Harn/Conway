@@ -69,10 +69,11 @@ void Board::drawEntireScreen() {
 void Board::countNeighbors() {
 	int currentNumber;
 	int livingNeighbors;
-	for( int j = 0; j < m_tableHeight; j++ ) {
-		for( int i = 0; i < m_tableWidth; i++ ) {
+	int i, j;
+	for( j = 0; j < m_tableHeight; j++ ) {
+		for( i = 0; i < m_tableWidth; i++ ) {
 			currentNumber = i + ( j * m_tableWidth );	
-			m_ptable[ currentNumber ].setLive( 0 );
+			// m_ptable[ currentNumber ].setLive( 0 );
 			
 			// tally live tiles from eight neighbors
 			livingNeighbors = 0;
