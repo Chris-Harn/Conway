@@ -1,16 +1,14 @@
 #include "Main.h"
 #include "Game.h"
 #include "Timer.h"
-
-#include <iostream>
+#include "Message.h"
 
 int main() {
 	if( TheGame::instance()->init( GAME_WIDTH, GAME_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT ) ) {
+		errorMessage( "The Game failed to initialize. Exiting Program." );
 		return 1;
 	}
 
-	std::cout << "Finished initalizing game, graphics, board and input.\n";
-	
 	Timer Clock;
 	Clock.init( DELAY_RENDERER, DELAY_UPDATE_BOARD );
 
@@ -25,9 +23,7 @@ int main() {
 			TheGame::instance()->render();
 		}
 	}	
-	std::cout << "Successfully exited the game. Now Deleting memory allocated.\n";
 	TheGame::instance()->clean();
-	std::cout << "Finished clearing memory. Exiting program.\n";
 
 	return 0;
 }
