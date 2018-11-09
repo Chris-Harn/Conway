@@ -1,6 +1,6 @@
 #include "Tile.h"
 
-Tile::Tile() : m_balive( 0 ), numberOfLiveNeighbors( 0 ) {
+Tile::Tile() : m_balive( 0 ), m_numberOfLiveNeighbors( 0 ) {
 
 }
 
@@ -8,28 +8,42 @@ Tile::~Tile() {
 
 }
 
-void Tile::flip() {
-	if ( numberOfLiveNeighbors < 2 ) {
-		m_balive = false;
-	} else if ( numberOfLiveNeighbors == 3 ) {
-		m_balive = true;
-	} else if ( numberOfLiveNeighbors < 4 ) {
+bool Tile::findIfChanging() {
+	bool newStatus = m_balive;
+	if ( m_numberOfLiveNeighbors < 2 ) {
+		newStatus = false;
+	} else if ( m_numberOfLiveNeighbors == 3 ) {
+		newStatus = true;
+	} else if ( m_numberOfLiveNeighbors < 4 ) {
 		// do nothing
-	} else if ( numberOfLiveNeighbors > 3 ) {
-		m_balive = false;
+	} else if ( m_numberOfLiveNeighbors > 3 ) {
+		newStatus = false;
 	}
 
-	numberOfLiveNeighbors = 0;
+	if( newStatus != m_balive ) {
+		return true;
+	}
+
+	return false;
+}
+
+void Tile::flip() {
+	m_balive = !m_balive;
 }
 
 int Tile::alive() {
 	return m_balive;
 }
 
+void Tile::setLive() {
+	m_balive = 1;
+	m_numberOfLiveNeighbors = 3;
+}
+
 void Tile::setLive( int liveNeighbors ) {
-	numberOfLiveNeighbors = liveNeighbors;
+	m_numberOfLiveNeighbors = liveNeighbors;
 }
 
 int Tile::numberAlive() {
-	return numberOfLiveNeighbors;
+	return m_numberOfLiveNeighbors;
 }

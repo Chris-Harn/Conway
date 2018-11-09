@@ -8,11 +8,13 @@ public:
 
 	int alive();
 	int numberAlive();
+	bool findIfChanging();
 	void flip();
+	void setLive();
 	void setLive( int liveNeighbors );
 private:
 	bool m_balive; 
-	int numberOfLiveNeighbors;
+	int m_numberOfLiveNeighbors;
 };
 
 #endif

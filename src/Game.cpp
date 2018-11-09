@@ -11,17 +11,25 @@ Game::Game() : m_brunning( true ), m_bpaused( true ) {
 }
 
 bool Game::init( const int boardWidth, const int boardHeight, const int screenWidth, const int screenHeight ) {
+	// create board with single traveler
 	TheBoard::instance()->init( boardWidth, boardHeight );
+
+	// initiate graphics
 	if( TheGraphics::instance()->init( screenWidth, screenHeight ) ) {
-		return false;
+		return true;
 	}	
+
 	TheInputHandler::instance()->init();
 
-	return true;
+	// do this to draw board for first time after initating graphics
+	TheBoard::instance()->clearScreen();
+	TheBoard::instance()->drawEntireScreen();
+	TheBoard::instance()->drawScreen();
+
+	return false;
 }
 
 void Game::render() {
-	TheBoard::instance()->clearScreen();
 	TheBoard::instance()->drawScreen();
 }
 

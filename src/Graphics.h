@@ -14,7 +14,7 @@ public:
 	// SDL commands
 	void drawSDLBoard(); // flips m_prenderer
 	void clearSDLBoard(); // changes m_prenderer to black - used only once
-	void updateSDLBoard( int x, int y ); // fast - future implementation
+	void updateSDLBoard( int x, int y, bool alive ); // fast - future implementation
 	void drawAlive( int x, int y ); // slow method - only used to set up board
 	void drawDead( int x, int y ); // slow method - only used to set up board
 

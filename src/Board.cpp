@@ -21,12 +21,11 @@ void Board::init( int width, int height ) {
 	
 	// create glider in middle to test logic
 	int currentNumber = m_tableWidth/2 + ( (m_tableHeight / 2) * m_tableWidth );
-	m_ptable[ currentNumber ].setLive( 3 );
-	m_ptable[ currentNumber + 1].setLive( 3 );
-	m_ptable[ currentNumber + 1 - m_tableWidth ].setLive( 3 );
-	m_ptable[ currentNumber - 1 - m_tableWidth ].setLive( 3 );
-	m_ptable[ currentNumber + m_tableWidth ].setLive( 3 );
-	updateBoard(); 
+	m_ptable[ currentNumber ].setLive();
+	m_ptable[ currentNumber + 1].setLive();
+	m_ptable[ currentNumber + 1 - m_tableWidth ].setLive();
+	m_ptable[ currentNumber - 1 - m_tableWidth ].setLive();
+	m_ptable[ currentNumber + m_tableWidth ].setLive();
 }
 
 void Board::clean() {
@@ -34,20 +33,21 @@ void Board::clean() {
 		delete []m_ptable;
 		m_ptable = 0;
 	}
-
 	if( m_pflipList != 0 ) {
 		delete m_pflipList;
 	}
 }
 
 void Board::clearScreen() {
-	// SDL command
 	TheGraphics::instance()->clearSDLBoard();
 }
 
 void Board::drawScreen() {
-	int currentNumber;
-	// SDL command
+	TheGraphics::instance()->drawSDLBoard();
+}
+
+void Board::drawEntireScreen() {
+	int currentNumber;	
 	for( int j = 0; j < m_tableHeight; j++ ) {
 		for( int i = 0; i < m_tableWidth; i++ ) {
 			currentNumber = i + ( j * m_tableWidth );	
@@ -63,6 +63,7 @@ void Board::countNeighbors() {
 	for( int j = 0; j < m_tableHeight; j++ ) {
 		for( int i = 0; i < m_tableWidth; i++ ) {
 			currentNumber = i + ( j * m_tableWidth );	
+			m_ptable[ currentNumber ].setLive( 0 );
 			
 			// tally live tiles from eight neighbors
 			livingNeighbors = 0;
@@ -100,17 +101,33 @@ void Board::countNeighbors() {
 
 			// make current number have those numbers now
 			m_ptable[ currentNumber ].setLive( livingNeighbors );
+
+
+			// if tile changing is true, add to list to change later
+			if( m_ptable[ currentNumber ].findIfChanging() == true ) {
+				m_pflipList->addNumberToList( currentNumber );	
+			}
 		}
 	}
+
 }
 
 void Board::updateBoard() {
-	int currentNumber;
-	for( int j = 0; j < m_tableHeight; j++ ) {
-		for( int i = 0; i < m_tableWidth; i++ ) {
-			currentNumber = i + ( j * m_tableWidth );	
-			m_ptable[ currentNumber ].flip();
+	int currentNumber = 0;
+	int i = 0;
+	int j = 0;
+
+	while( m_pflipList->removeNumberFromList( currentNumber ) == true ) {
+		if( currentNumber != 0 ) {
+			i = currentNumber % m_tableWidth;	
+			j = currentNumber / m_tableWidth;
+		} else {
+			i = 0;
+			j = 0;
 		}
+		m_ptable[ currentNumber ].flip();
+
+		TheGraphics::instance()->updateSDLBoard( i, j, m_ptable[ currentNumber ].alive() );
 	}
 }
 

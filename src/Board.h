@@ -11,6 +11,7 @@ public:
 
 	void clearScreen();
 	void drawScreen();
+	void drawEntireScreen();
 	void countNeighbors();
 	void updateBoard();
 

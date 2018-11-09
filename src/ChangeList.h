@@ -11,8 +11,8 @@ class ChangeList {
 
 	private:
 	int *m_pcurrentList;
-	int m_currentNumber;
 	int m_totalNumbersInList;
+	int m_maxMemory;
 };
 
 #endif
