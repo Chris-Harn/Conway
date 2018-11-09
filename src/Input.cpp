@@ -69,11 +69,9 @@ void Input::onKeyUp() {
 }
 
 void Input::onMouseMove( SDL_Event& event ) {
-	/*
-	if( event.type == SDL_MOUSEMOTION ) {
-		// do nothing at this point
+	if( ( event.type == SDL_MOUSEMOTION ) && ( m_mouseButtonStates[LEFT] == true ) ) {
+		TheBoard::instance()->drawOnBoard( event.button.x / CELL_SIZE_X, event.button.y / CELL_SIZE_Y );
 	}
-	*/
 }
 
 void Input::onMouseButtonDown( SDL_Event& event ) {

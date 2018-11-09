@@ -25,13 +25,15 @@ void Board::init( int width, int height ) {
 
 	// create a series of gliders to test logic and performance
 	int currentNumber = 0;
-	for( int i = 0; i < 60; i++ ) {
+	for( int i = 0; i < 120; i++ ) {
 		currentNumber += i * m_tableWidth/10;
-		m_ptable[ currentNumber ].setLive();
-		m_ptable[ currentNumber + 1].setLive();
-		m_ptable[ currentNumber + 1 - m_tableWidth ].setLive();
-		m_ptable[ currentNumber - 1 - m_tableWidth ].setLive();
-		m_ptable[ currentNumber + m_tableWidth ].setLive();
+		if( currentNumber < ( m_tableWidth * m_tableHeight - 10 ) ) {
+			m_ptable[ currentNumber ].setLive();
+			m_ptable[ currentNumber + 1].setLive();
+			m_ptable[ currentNumber + 1 - m_tableWidth ].setLive();
+			m_ptable[ currentNumber - 1 - m_tableWidth ].setLive();
+			m_ptable[ currentNumber + m_tableWidth ].setLive();
+		}
 	}
 }
 
