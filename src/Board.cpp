@@ -21,14 +21,18 @@ void Board::init( int width, int height ) {
 	m_tableHeight = height;
 	m_ptable = new Tile[ width * height ];
 	m_pflipList = new ChangeList( width * height );
-	
-	// create glider in middle to test logic
-	int currentNumber = m_tableWidth/2 + ( (m_tableHeight / 2) * m_tableWidth );
-	m_ptable[ currentNumber ].setLive();
-	m_ptable[ currentNumber + 1].setLive();
-	m_ptable[ currentNumber + 1 - m_tableWidth ].setLive();
-	m_ptable[ currentNumber - 1 - m_tableWidth ].setLive();
-	m_ptable[ currentNumber + m_tableWidth ].setLive();
+
+
+	// create a series of gliders to test logic and performance
+	int currentNumber = 0;
+	for( int i = 0; i < 60; i++ ) {
+		currentNumber += i * m_tableWidth/10;
+		m_ptable[ currentNumber ].setLive();
+		m_ptable[ currentNumber + 1].setLive();
+		m_ptable[ currentNumber + 1 - m_tableWidth ].setLive();
+		m_ptable[ currentNumber - 1 - m_tableWidth ].setLive();
+		m_ptable[ currentNumber + m_tableWidth ].setLive();
+	}
 }
 
 void Board::clean() {
@@ -116,12 +120,8 @@ void Board::countNeighbors() {
 }
 
 void Board::drawOnBoard( int x, int y ) {
-	std::cout << "Inside drawOnBoard.\n";
 	if( TheGame::instance()->gamePaused() == true ) {
 		int currentNumber = x + ( y * m_tableWidth );	
-		std::cout << "Drawing to " << currentNumber << ".\n";
-		std::cout << "Location X: " << x << "  Y: " << y << ".\n";
-
 
 		m_ptable[ currentNumber ].flip();	
 		TheGraphics::instance()->updateSDLBoard( x, y, m_ptable[ currentNumber ].alive() ); 
