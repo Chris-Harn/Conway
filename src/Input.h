@@ -15,7 +15,7 @@
 enum mouse_buttons {
 	LEFT = 0,
 	MIDDLE = 1,
-	Right = 2
+	RIGHT = 2
 };
 
 class Input {

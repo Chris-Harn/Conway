@@ -22,6 +22,7 @@ public:
 	void countNeighbors();
 	void updateBoard();
 	void drawOnBoard( int x, int y );
+	void countLivingTiles( int x, int y );
 
 	int getTableWidth();
 	int getTableHeight();

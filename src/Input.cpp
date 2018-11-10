@@ -80,11 +80,21 @@ void Input::onMouseButtonDown( SDL_Event& event ) {
 
 		TheBoard::instance()->drawOnBoard( event.button.x / CELL_SIZE_X, event.button.y / CELL_SIZE_Y );
 	}
+
+	if( event.button.button == SDL_BUTTON_RIGHT ) {
+		m_mouseButtonStates[RIGHT] = true;
+
+		TheBoard::instance()->countLivingTiles( event.button.x / CELL_SIZE_X, event.button.y / CELL_SIZE_Y );
+	}
 }
 
 void Input::onMouseButtonUp( SDL_Event& event ) {
 	if( event.button.button == SDL_BUTTON_LEFT ) {
 		m_mouseButtonStates[LEFT] = false;
+	}
+
+	if( event.button.button == SDL_BUTTON_RIGHT ) {
+		m_mouseButtonStates[RIGHT] = false;
 	}
 }
 
