@@ -50,25 +50,49 @@ bool Game::init( const int boardWidth, const int boardHeight, const int screenWi
 	return false;
 }
 
+
 /**************************************************
  *  Game::render
- *  Purpose: Flips buffer.
+ *  Purpose: Flips buffer that we've been drawing 
+ *  too.
  *  Input: None.
  *  Return: None.
  *
  *************************************************/
-
 
 void Game::render() {
 	TheBoard::instance()->drawScreen();
 }
 
 
+/**************************************************
+ *  Game::update
+ *  Purpose: Itterates through every tile, counts
+ *  the neighboring living tiles, figures out if the
+ *  tile should be changed, adds that tile to a list
+ *  to be changed later, and then calls updateBoard
+ *  where it changes only the designated tiles in 
+ *  one pass.
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
+
 void Game::update() {
 	TheBoard::instance()->countNeighbors();
 	TheBoard::instance()->updateBoard();
 }
 
+
+/**************************************************
+ *  Game::handleEvents
+ *  Purpose: Checks events for keyboard/mouse input
+ *  and commands a TheBoard, TheGraphics, or 
+ *  TheGame how to act in response.
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
 
 void Game::handleEvents() {
 	TheInputHandler::instance()->update();
@@ -86,6 +110,14 @@ void Game::handleEvents() {
 }
 
 
+/**************************************************
+ *  Game::clean
+ *  Purpose: Calls clean for all singletons.
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
+
 void Game::clean() {
 	TheBoard::instance()->clean();
 	TheInputHandler::instance()->clean();
@@ -93,16 +125,45 @@ void Game::clean() {
 }
 
 
+/**************************************************
+ *  Game::pauseBoard
+ *  Purpose: Makes the simulation pause updating. 
+ *  Made seperate from unpauseBoard to prevent sim
+ *  from being started/stopped multiple times with
+ *  one key press.
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
+
 void Game::pauseBoard() {
 	m_bpaused = true;
 }
 
+
+/**************************************************
+ *  Game::unpauseBoard
+ *  Purpose: Makes the simulation unpause updating.
+ *  Made sperate from pauseBoard to prevent sim
+ *  from being started/stopped multipl times with
+ *  one key press.
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
 
 void Game::unpauseBoard() {
 	m_bpaused = false;
 }
 
 
+/**************************************************
+ *  Game::gamePause
+ *  Purpose: Check if sim is paused/unpaused.
+ *  Input: None.
+ *  Return: bool
+ *
+ *************************************************/
 
 bool Game::gamePaused() {
 	return m_bpaused;
