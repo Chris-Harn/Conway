@@ -18,6 +18,7 @@ public:
 	void init( double delayForRendering, double delayForUpdatingBoard );
 	bool timeForRender();
 	bool timeForUpdatingBoard();
+	void pause( double time );
 
 private:
 	Uint32 m_timerForRendering;

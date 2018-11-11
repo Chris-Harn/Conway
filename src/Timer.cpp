@@ -29,5 +29,9 @@ bool Timer::timeForUpdatingBoard() {
 	} else {
 		return false;
 	}
+}
 
+void Timer::pause( double time ) {
+	// time in milli seconds
+	SDL_Delay( time );
 }

@@ -24,84 +24,88 @@ void Board::init( int width, int height ) {
 	m_pflipList = new ChangeList( width * height );
 
 	// Hardcode Riley's Breeder using rule B3/S23
-	int currentNumber = ( 41 * m_tableWidth ) + 133;
-	m_ptable[ currentNumber + 1 ].setLive();	
+	for( int num = 0; num < 3; num++ ) {
+		// k creates three cascading Breeders
+		int k = ( num * m_tableWidth * 200 ) + ( num * 200 ); 
+		int currentNumber = ( 41 * m_tableWidth ) + 133 + k;
+		m_ptable[ currentNumber + 1 ].setLive();	
 
-	currentNumber = ( 42 * m_tableWidth ) + 134;
-	m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 42 * m_tableWidth ) + 134 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
 
-	currentNumber = ( 43 * m_tableWidth ) + 130;
-	m_ptable[ currentNumber + 1 ].setLive();
-	currentNumber += 1 + 3;
-	m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 43 * m_tableWidth ) + 130 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber += 1 + 3;
+		m_ptable[ currentNumber + 1 ].setLive();
 
-	currentNumber = ( 44 * m_tableWidth ) + 131;
-	for( int i = 0; i < 4; i++ ) {
-		m_ptable[ currentNumber + 1 + i ].setLive();
-	}
+		currentNumber = ( 44 * m_tableWidth ) + 131 + k;
+		for( int i = 0; i < 4; i++ ) {
+			m_ptable[ currentNumber + 1 + i ].setLive();
+		}
 
-	currentNumber = ( 47 * m_tableWidth ) + 130;
-	m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 47 * m_tableWidth ) + 130 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
 
-	currentNumber = ( 48 * m_tableWidth ) + 131;
-	m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 48 * m_tableWidth ) + 131 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
 
-	currentNumber = ( 49 * m_tableWidth ) + 132;
-	m_ptable[ currentNumber + 1 ].setLive();
-	currentNumber = ( 50 * m_tableWidth ) + 132;
-	m_ptable[ currentNumber + 1 ].setLive();
-	currentNumber = ( 51 * m_tableWidth ) + 131;
-	for( int i = 0; i < 2; i++ ) {
-		m_ptable[ currentNumber + 1 + i ].setLive();
-	}
+		currentNumber = ( 49 * m_tableWidth ) + 132 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 50 * m_tableWidth ) + 132 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 51 * m_tableWidth ) + 131 + k;
+		for( int i = 0; i < 2; i++ ) {
+			m_ptable[ currentNumber + 1 + i ].setLive();
+		}
 
-	currentNumber = ( 55 * m_tableWidth ) + 133;
-	m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 55 * m_tableWidth ) + 133 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
 
-	// end of first line of data
-	currentNumber = ( 56 * m_tableWidth ) + 134;
-	m_ptable[ currentNumber + 1 ].setLive();
+		// end of first line of data
+		currentNumber = ( 56 * m_tableWidth ) + 134 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
 
-	currentNumber = ( 57 * m_tableWidth ) + 130;
-	m_ptable[ currentNumber + 1 ].setLive();
-	currentNumber += 1 + 3;
-	m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 57 * m_tableWidth ) + 130 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber += 1 + 3;
+		m_ptable[ currentNumber + 1 ].setLive();
 
-	currentNumber = ( 58 * m_tableWidth ) + 131;
-	for( int i = 0; i < 4; i++ ) {
-		m_ptable[ currentNumber + 1 + i ].setLive();
-	}
+		currentNumber = ( 58 * m_tableWidth ) + 131 + k;
+		for( int i = 0; i < 4; i++ ) {
+			m_ptable[ currentNumber + 1 + i ].setLive();
+		}
 
-	currentNumber = ( 67 * m_tableWidth ) + 96;
-	m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 67 * m_tableWidth ) + 96 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
 
-	currentNumber = ( 68 * m_tableWidth ) + 97;
-	m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 68 * m_tableWidth ) + 97 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
 
-	currentNumber = ( 69 * m_tableWidth ) + 93;
-	m_ptable[ currentNumber + 1 ].setLive();
-	currentNumber += 1 + 3;
-	m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 69 * m_tableWidth ) + 93 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber += 1 + 3;
+		m_ptable[ currentNumber + 1 ].setLive();
 
-	currentNumber = ( 70 * m_tableWidth ) + 94;
-	for( int i = 0; i < 4; i++ ) {
-		m_ptable[ currentNumber + 1 + i ].setLive();
-	}
+		currentNumber = ( 70 * m_tableWidth ) + 94 + k;
+		for( int i = 0; i < 4; i++ ) {
+			m_ptable[ currentNumber + 1 + i ].setLive();
+		}
 
-	currentNumber = ( 78 * m_tableWidth ) + 3;
-	m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 78 * m_tableWidth ) + 3 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
 
-	currentNumber = ( 79 * m_tableWidth ) + 4;
-	m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 79 * m_tableWidth ) + 4 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
 
-	currentNumber = ( 80 * m_tableWidth ) + 0;
-	m_ptable[ currentNumber + 1 ].setLive();
-	currentNumber += 1 + 3;
-	m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber = ( 80 * m_tableWidth ) + 0 + k;
+		m_ptable[ currentNumber + 1 ].setLive();
+		currentNumber += 1 + 3;
+		m_ptable[ currentNumber + 1 ].setLive();
 
-	currentNumber = ( 81 * m_tableWidth ) + 1;
-	for( int i = 0; i < 4; i++ ) {
-		m_ptable[ currentNumber + 1 + i ].setLive();
+		currentNumber = ( 81 * m_tableWidth ) + 1;
+		for( int i = 0; i < 4; i++ ) {
+			m_ptable[ currentNumber + 1 + i ].setLive();
+		}
 	}
 }
 
