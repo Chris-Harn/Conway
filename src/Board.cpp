@@ -1,5 +1,6 @@
 #include "Board.h"
 
+#include"Main.h"
 #include "Tile.h"
 #include "ChangeList.h"
 #include "Graphics.h"
@@ -24,17 +25,18 @@ void Board::init( int width, int height ) {
 
 
 	int currentNumber;
+	/*
 	currentNumber = m_tableWidth / 2 + ( m_tableHeight / 2 * m_tableWidth );
 			m_ptable[ currentNumber ].setLive();
 			m_ptable[ currentNumber + 1].setLive();
 			m_ptable[ currentNumber + 1 - m_tableWidth ].setLive();
 			m_ptable[ currentNumber - 1 - m_tableWidth ].setLive();
 			m_ptable[ currentNumber + m_tableWidth ].setLive();
+	*/
 
-	/*
 	// create a series of gliders to test logic and performance
-	int currentNumber = 0;
-	for( int i = 0; i < 120; i++ ) {
+	currentNumber = 0;
+	for( int i = 0; i < 240; i++ ) {
 		currentNumber += i * m_tableWidth / 10;
 		if( currentNumber < ( m_tableWidth * m_tableHeight - 10 ) ) {
 			m_ptable[ currentNumber ].setLive();
@@ -44,7 +46,6 @@ void Board::init( int width, int height ) {
 			m_ptable[ currentNumber + m_tableWidth ].setLive();
 		}
 	}
-	*/
 }
 
 void Board::clean() {
@@ -68,9 +69,6 @@ void Board::drawScreen() {
 void Board::drawEntireScreen() {
 	int currentNumber;	
 	for( int j = 0; j < m_tableHeight; j++ ) {
-		if( j == 67 ) {
-			std::cout << "Doing logic on roll 67.\n";
-		}
 		for( int i = 0; i < m_tableWidth; i++ ) {
 			currentNumber = i + ( j * m_tableWidth );	
 			( m_ptable[ currentNumber ].alive() ) ? TheGraphics::instance()->drawAlive( i, j ) : TheGraphics::instance()->drawDead( i, j );
@@ -86,44 +84,41 @@ void Board::countNeighbors() {
 	for( j = 0; j < m_tableHeight; j++ ) {
 		for( i = 0; i < m_tableWidth; i++ ) {
 			currentNumber = i + ( j * m_tableWidth );	
-			// m_ptable[ currentNumber ].setLive( 0 );
-			
+
 			// tally live tiles from eight neighbors
 			livingNeighbors = 0;
 
 			// left - correct
 			if( i - 1 >= 0 )
 				livingNeighbors += m_ptable[ currentNumber - 1 ].alive();
-			else if( i == 0 )
+			else //if( i == 0 )
 				livingNeighbors += m_ptable[ currentNumber - 1 + m_tableWidth ].alive();
 
 			// right - correct
 			if( i + 1 < m_tableWidth )
 				livingNeighbors += m_ptable[ currentNumber + 1 ].alive();
-			else if( i == m_tableWidth -1 )
+			else // if( i == m_tableWidth -1 )
 				livingNeighbors += m_ptable[ currentNumber + 1 - m_tableWidth ].alive();
 
 			// top - correct	
 			if( j - 1 >= 0 )
 				livingNeighbors += m_ptable[ currentNumber - m_tableWidth ].alive();
-			else if( j == 0 ) 
+			else // if( j == 0 ) 
 				livingNeighbors += m_ptable[ currentNumber - m_tableWidth + ( m_tableWidth * m_tableHeight ) ].alive();
 
 			// bottom - correct
 			if( j + 1 < m_tableHeight )
 				livingNeighbors += m_ptable[ currentNumber + m_tableWidth ].alive();
-			else if( j == m_tableHeight - 1 )
+			else// if( j == m_tableHeight - 1 )
 				livingNeighbors += m_ptable[ currentNumber + m_tableWidth - ( m_tableWidth * m_tableHeight ) ].alive();
-
-			// double check all the logic starting a this point
-
+			
 			// top left - appears correct
-			if( ( i - 1 >= 0 ) && ( j - 1 >= 0 ) ) 
+			if( ( i - 1 >= 0 ) && ( j - 1 >= 0 ) )
 				livingNeighbors += m_ptable[ currentNumber - 1 - m_tableWidth ].alive();
-			else if ( ( i == 0 ) && ( j == 0 ) )
+			else if ( ( i == 0 ) && ( j == 0 ) ) 
 				livingNeighbors += m_ptable[ ( m_tableWidth * m_tableHeight ) - 1 ].alive();
 			else if( i == 0 )
-				livingNeighbors += m_ptable[ currentNumber - 1 + ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
+				livingNeighbors += m_ptable[ currentNumber - 1 ].alive();
 			else if( j == 0 )
 				livingNeighbors += m_ptable[ currentNumber - 1 + ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
 
@@ -132,8 +127,8 @@ void Board::countNeighbors() {
 				livingNeighbors += m_ptable[ currentNumber + 1 - m_tableWidth ].alive();
 			else if( ( i == m_tableWidth - 1 ) && ( j == 0 ) ) 
 				livingNeighbors += m_ptable[ ( m_tableWidth * m_tableHeight ) - m_tableWidth ].alive();
-			else if ( i == m_tableWidth - 1 )
-				livingNeighbors += m_ptable[ currentNumber + 1 - ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
+			else if ( i == m_tableWidth - 1 ) 
+				livingNeighbors += m_ptable[ currentNumber + 1 - ( m_tableWidth * 2 ) ].alive();
 			else if ( j == 0 ) 
 				livingNeighbors += m_ptable[ currentNumber + 1 + ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
 
@@ -143,7 +138,7 @@ void Board::countNeighbors() {
 			else if( ( i == 0 ) && ( j == m_tableHeight - 1 ) )
 				livingNeighbors += m_ptable[ m_tableWidth - 1 ].alive();
 			else if( i == 0 )
-				livingNeighbors += m_ptable[ currentNumber - 1 + ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
+				livingNeighbors += m_ptable[ currentNumber - 1 + ( m_tableWidth * 2 ) ].alive();
 			else if( j == m_tableHeight - 1 )
 				livingNeighbors += m_ptable[ currentNumber - 1 - ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
 			
@@ -155,11 +150,10 @@ void Board::countNeighbors() {
 			else if( i == m_tableWidth - 1 )
 				livingNeighbors += m_ptable[ currentNumber + 1 ].alive();
 			else if( j == m_tableHeight - 1 )
-				livingNeighbors += m_ptable[ currentNumber + 1 + ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
+				livingNeighbors += m_ptable[ currentNumber + 1 - ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
 
 			// make current number have those numbers now
 			m_ptable[ currentNumber ].setLive( livingNeighbors );
-
 
 			// if tile changing is true, add to list to change later
 			if( m_ptable[ currentNumber ].findIfChanging() == true ) {
@@ -180,36 +174,34 @@ void Board::countLivingTiles( int x, int y ) {
 			// left - correct
 			if( i - 1 >= 0 )
 				livingNeighbors += m_ptable[ currentNumber - 1 ].alive();
-			else if( i == 0 )
+			else //if( i == 0 )
 				livingNeighbors += m_ptable[ currentNumber - 1 + m_tableWidth ].alive();
 
 			// right - correct
 			if( i + 1 < m_tableWidth )
 				livingNeighbors += m_ptable[ currentNumber + 1 ].alive();
-			else if( i == m_tableWidth -1 )
+			else // if( i == m_tableWidth -1 )
 				livingNeighbors += m_ptable[ currentNumber + 1 - m_tableWidth ].alive();
 
 			// top - correct	
 			if( j - 1 >= 0 )
 				livingNeighbors += m_ptable[ currentNumber - m_tableWidth ].alive();
-			else if( j == 0 ) 
+			else // if( j == 0 ) 
 				livingNeighbors += m_ptable[ currentNumber - m_tableWidth + ( m_tableWidth * m_tableHeight ) ].alive();
 
 			// bottom - correct
 			if( j + 1 < m_tableHeight )
 				livingNeighbors += m_ptable[ currentNumber + m_tableWidth ].alive();
-			else if( j == m_tableHeight - 1 )
+			else// if( j == m_tableHeight - 1 )
 				livingNeighbors += m_ptable[ currentNumber + m_tableWidth - ( m_tableWidth * m_tableHeight ) ].alive();
 
-			// double check all the logic starting a this point
-
 			// top left - appears correct
-			if( ( i - 1 >= 0 ) && ( j - 1 >= 0 ) ) 
+			if( ( i - 1 >= 0 ) && ( j - 1 >= 0 ) )
 				livingNeighbors += m_ptable[ currentNumber - 1 - m_tableWidth ].alive();
-			else if ( ( i == 0 ) && ( j == 0 ) )
+			else if ( ( i == 0 ) && ( j == 0 ) ) 
 				livingNeighbors += m_ptable[ ( m_tableWidth * m_tableHeight ) - 1 ].alive();
 			else if( i == 0 )
-				livingNeighbors += m_ptable[ currentNumber - 1 + ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
+				livingNeighbors += m_ptable[ currentNumber - 1 ].alive();
 			else if( j == 0 )
 				livingNeighbors += m_ptable[ currentNumber - 1 + ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
 
@@ -218,19 +210,19 @@ void Board::countLivingTiles( int x, int y ) {
 				livingNeighbors += m_ptable[ currentNumber + 1 - m_tableWidth ].alive();
 			else if( ( i == m_tableWidth - 1 ) && ( j == 0 ) ) 
 				livingNeighbors += m_ptable[ ( m_tableWidth * m_tableHeight ) - m_tableWidth ].alive();
-			else if ( i == m_tableWidth - 1 )
-				livingNeighbors += m_ptable[ currentNumber + 1 - ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
+			else if ( i == m_tableWidth - 1 ) 
+				livingNeighbors += m_ptable[ currentNumber + 1 - ( m_tableWidth * 2 ) ].alive();
 			else if ( j == 0 ) 
 				livingNeighbors += m_ptable[ currentNumber + 1 + ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
 
 			// bottom left - appears correct
 			if( ( i - 1 >= 0 ) && ( j + 1 < m_tableHeight ) )
 				livingNeighbors += m_ptable[ currentNumber - 1 + m_tableWidth ].alive();
-			else if( ( i == 0 ) && ( j == m_tableHeight - 1 ) )
+			else if( ( i == 0 ) && ( j == m_tableHeight - 1 ) ) 
 				livingNeighbors += m_ptable[ m_tableWidth - 1 ].alive();
-			else if( i == 0 )
-				livingNeighbors += m_ptable[ currentNumber - 1 + ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
-			else if( j == m_tableHeight - 1 )
+			else if( i == 0 ) 
+				livingNeighbors += m_ptable[ currentNumber - 1 + ( m_tableWidth * 2 ) ].alive();
+			else if( j == m_tableHeight - 1 ) 
 				livingNeighbors += m_ptable[ currentNumber - 1 - ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
 			
 			// bottom right
@@ -241,7 +233,7 @@ void Board::countLivingTiles( int x, int y ) {
 			else if( i == m_tableWidth - 1 )
 				livingNeighbors += m_ptable[ currentNumber + 1 ].alive();
 			else if( j == m_tableHeight - 1 )
-				livingNeighbors += m_ptable[ currentNumber + 1 + ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
+				livingNeighbors += m_ptable[ currentNumber + 1 - ( m_tableWidth * ( m_tableHeight - 1 ) ) ].alive();
 
 			std::cout << "Found " << livingNeighbors << " around the cell at X: " << x << " Y: " << y << ".\n";
 }

@@ -11,10 +11,10 @@
  *************************************************/
 
 // SDL Settings
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 600;
-const int CELL_SIZE_X = 160;
-const int CELL_SIZE_Y = 120;
+const int SCREEN_WIDTH = 1920;
+const int SCREEN_HEIGHT = 1080;
+const int CELL_SIZE_X = 1;
+const int CELL_SIZE_Y = 1;
 
 // Gameplay Loop
 const double FPS = 30; // per sec
