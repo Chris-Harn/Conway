@@ -24,10 +24,11 @@ void Board::init( int width, int height ) {
 	m_pflipList = new ChangeList( width * height );
 
 	// Hardcode Riley's Breeder using rule B3/S23
+	int k, currentNumber;
 	for( int num = 0; num < 3; num++ ) {
 		// k creates three cascading Breeders
-		int k = ( num * m_tableWidth * 200 ) + ( num * 200 ); 
-		int currentNumber = ( 41 * m_tableWidth ) + 133 + k;
+		k = ( num * m_tableWidth * 300 ) + ( num * 500 ); 
+		currentNumber = ( 41 * m_tableWidth ) + 133 + k;
 		m_ptable[ currentNumber + 1 ].setLive();	
 
 		currentNumber = ( 42 * m_tableWidth ) + 134 + k;
@@ -102,7 +103,7 @@ void Board::init( int width, int height ) {
 		currentNumber += 1 + 3;
 		m_ptable[ currentNumber + 1 ].setLive();
 
-		currentNumber = ( 81 * m_tableWidth ) + 1;
+		currentNumber = ( 81 * m_tableWidth ) + 1 + k;
 		for( int i = 0; i < 4; i++ ) {
 			m_ptable[ currentNumber + 1 + i ].setLive();
 		}
