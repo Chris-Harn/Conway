@@ -1,6 +1,6 @@
 #include "Board.h"
 
-#include"Main.h"
+#include "Main.h"
 #include "Tile.h"
 #include "ChangeList.h"
 #include "Graphics.h"
@@ -11,9 +11,27 @@
 
 Board* Board::s_pinstance = 0;
 
+
+/**************************************************
+ *  Board::Board
+ *  Purpose: Constructor.
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
+
 Board::Board() : m_tableWidth( 0 ), m_tableHeight( 0 ), m_ptable( 0 ), m_pflipList( 0 ) {
 
 }
+
+
+/**************************************************
+ *  Board::init
+ *  Purpose: 
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
 
 void Board::init( int width, int height ) {
 	m_tableWidth = width;
@@ -107,6 +125,15 @@ void Board::init( int width, int height ) {
 	}
 }
 
+
+/**************************************************
+ *  Board::clean
+ *  Purpose: 
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
+
 void Board::clean() {
 	if( m_ptable != 0 ) {
 		delete []m_ptable;
@@ -117,13 +144,40 @@ void Board::clean() {
 	}
 }
 
+
+/**************************************************
+ *  Board::clearScreen
+ *  Purpose: 
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
+
 void Board::clearScreen() {
 	TheGraphics::instance()->clearSDLBoard();
 }
 
+
+/**************************************************
+ *  Board::drawScreen
+ *  Purpose: 
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
+
 void Board::drawScreen() {
 	TheGraphics::instance()->drawSDLBoard();
 }
+
+
+/**************************************************
+ *  Board::drawEntireScreen
+ *  Purpose: 
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
 
 void Board::drawEntireScreen() {
 	int currentNumber;	
@@ -135,6 +189,15 @@ void Board::drawEntireScreen() {
 	}
 	TheGraphics::instance()->drawSDLBoard();
 }
+
+
+/**************************************************
+ *  Board::countNeighbors
+ *  Purpose: 
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
 
 void Board::countNeighbors() {
 	int currentNumber;
@@ -221,7 +284,15 @@ void Board::countNeighbors() {
 		}
 	}
 }	
-	
+
+
+/**************************************************
+ *  Board::drawOnBoard
+ *  Purpose: 
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
 
 void Board::drawOnBoard( int x, int y ) {
 	if( TheGame::instance()->gamePaused() == true ) {
@@ -231,6 +302,15 @@ void Board::drawOnBoard( int x, int y ) {
 		TheGraphics::instance()->updateSDLBoard( x, y, m_ptable[ currentNumber ].alive() ); 
 	}
 }
+
+
+/**************************************************
+ *  Board::updateBoard
+ *  Purpose: 
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
 
 void Board::updateBoard() {
 	int currentNumber = 0;
@@ -251,9 +331,27 @@ void Board::updateBoard() {
 	}
 }
 
+
+/**************************************************
+ *  Board::getTableWidth
+ *  Purpose: 
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
+
 int Board::getTableWidth() {
 	return m_tableWidth;
 }
+
+
+/**************************************************
+ *  Board::getTableHeight
+ *  Purpose: 
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
 
 int Board::getTableHeight() {
 	return m_tableHeight;
