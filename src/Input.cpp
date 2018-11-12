@@ -83,8 +83,6 @@ void Input::onMouseButtonDown( SDL_Event& event ) {
 
 	if( event.button.button == SDL_BUTTON_RIGHT ) {
 		m_mouseButtonStates[RIGHT] = true;
-
-		TheBoard::instance()->countLivingTiles( event.button.x / CELL_SIZE_X, event.button.y / CELL_SIZE_Y );
 	}
 }
 

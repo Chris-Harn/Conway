@@ -2,7 +2,6 @@
 
 #include <SDL2/SDL.h>
 
-#include <iostream>
 
 Graphics* Graphics::s_pinstance = 0;
 
