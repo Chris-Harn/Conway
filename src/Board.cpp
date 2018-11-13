@@ -14,7 +14,7 @@ Board* Board::s_pinstance = 0;
 
 /**************************************************
  *  Board::Board
- *  Purpose: Constructor.
+ *  Purpose: Constructor. 
  *  Input: None.
  *  Return: None.
  *
@@ -27,7 +27,9 @@ Board::Board() : m_tableWidth( 0 ), m_tableHeight( 0 ), m_ptable( 0 ), m_pflipLi
 
 /**************************************************
  *  Board::init
- *  Purpose: 
+ *  Purpose: Dynamically allocate the board and then 
+ *  places three Riley's Breeders to populate the 
+ *  board. 
  *  Input: None.
  *  Return: None.
  *
@@ -128,7 +130,8 @@ void Board::init( int width, int height ) {
 
 /**************************************************
  *  Board::clean
- *  Purpose: 
+ *  Purpose: Deallocates the board and the list of 
+ *  tiles to flip.
  *  Input: None.
  *  Return: None.
  *
@@ -147,7 +150,8 @@ void Board::clean() {
 
 /**************************************************
  *  Board::clearScreen
- *  Purpose: 
+ *  Purpose: Changes the window to all black. Called 
+ *  once.
  *  Input: None.
  *  Return: None.
  *
@@ -160,7 +164,8 @@ void Board::clearScreen() {
 
 /**************************************************
  *  Board::drawScreen
- *  Purpose: 
+ *  Purpose: Commands the window context to flip 
+ *  the buffer.
  *  Input: None.
  *  Return: None.
  *
@@ -173,7 +178,8 @@ void Board::drawScreen() {
 
 /**************************************************
  *  Board::drawEntireScreen
- *  Purpose: 
+ *  Purpose: Draws the board as if on a brand new 
+ *  context.
  *  Input: None.
  *  Return: None.
  *
@@ -193,14 +199,18 @@ void Board::drawEntireScreen() {
 
 /**************************************************
  *  Board::countNeighbors
- *  Purpose: 
+ *  Purpose: Iterates through all tiles, counts the
+ *  eight nearest neighbors, tells that title how 
+ *  many living neighbors it has, and then lets the 
+ *  tile decide if it's ready to change. If the tile
+ *  is ready to change, put it on the change list.
  *  Input: None.
  *  Return: None.
  *
  *************************************************/
 
 void Board::countNeighbors() {
-	int currentNumber;
+	int currentNumNone.ber;
 	int livingNeighbors;
 	int i, j;
 	for( j = 0; j < m_tableHeight; j++ ) {
@@ -288,9 +298,10 @@ void Board::countNeighbors() {
 
 /**************************************************
  *  Board::drawOnBoard
- *  Purpose: 
- *  Input: None.
- *  Return: None.
+ *  Purpose: Takes 2d coordinates, flips that tile,
+ *  and draws the new graphic for that one tile. 
+ *  Input: int x and y coordinates on the board.
+ *  Return: None.None.
  *
  *************************************************/
 
@@ -306,7 +317,10 @@ void Board::drawOnBoard( int x, int y ) {
 
 /**************************************************
  *  Board::updateBoard
- *  Purpose: 
+ *  Purpose: Pops the last number added to the flip
+ *  list, and changes it. Changelist returns false
+ *  if there is nothing left to pop off the LIFO. 
+ *  Iterates through entire list.
  *  Input: None.
  *  Return: None.
  *
@@ -334,7 +348,7 @@ void Board::updateBoard() {
 
 /**************************************************
  *  Board::getTableWidth
- *  Purpose: 
+ *  Purpose: Returns board Width member. 
  *  Input: None.
  *  Return: None.
  *
@@ -347,7 +361,7 @@ int Board::getTableWidth() {
 
 /**************************************************
  *  Board::getTableHeight
- *  Purpose: 
+ *  Purpose: Returns board Height member.
  *  Input: None.
  *  Return: None.
  *
