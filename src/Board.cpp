@@ -210,7 +210,7 @@ void Board::drawEntireScreen() {
  *************************************************/
 
 void Board::countNeighbors() {
-	int currentNumNone.ber;
+	int currentNumber;
 	int livingNeighbors;
 	int i, j;
 	for( j = 0; j < m_tableHeight; j++ ) {
