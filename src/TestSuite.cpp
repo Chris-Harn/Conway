@@ -53,13 +53,15 @@ void TestSuite::results() {
  *  being tested, and is compared to the expected-
  *  Answer.
  *  Input: Takes in two ints.
- *  Return: True if it fails. False if it passes.
+ *  Return: True if it passes. False if it fails.
  *
  *************************************************/
 
 bool compareInt( int functionAnswer, int expectedAnswer ) {
+	if( functionAnswer == expectedAnswer )
+		return true;
 
-	return true;
+	return false;
 }
 
 
@@ -70,13 +72,15 @@ bool compareInt( int functionAnswer, int expectedAnswer ) {
  *  Answer. Must be inside the tolerance.
  *  Input: Takes in two floats and checks them
  *  using a tolerance value to check the difference.
- *  Return: True if it fails. False if it passes.
+ *  Return: True if it passes. False if it fails.
  *
  *************************************************/
 
 bool compareFloat( float functionAnswer, float expectedAnswer, float tolerance ) {
+	if( abs( functionAnswer - expectedAnswer ) < ( functionAnswer * tolerance ) )
+		return true;
 
-	return true;
+	return false;
 }
 
 
@@ -87,12 +91,14 @@ bool compareFloat( float functionAnswer, float expectedAnswer, float tolerance )
  *  Answer. Must be inside the tolerance.
  *  Input: Takes in two doubles and checks them
  *  using a tolerance value to check the difference.
- *  Return: True if it fails. False if it passes.
+ *  Return: True if it passes. False if it fails.
  *
  *************************************************/
 
 bool compareDouble( double functionAnswer, double expectedAnswer, double tolerance ) {
+	if( abs( functionAnswer - expectedAnswer ) < ( functionAnswer * tolerance ) )
+		return true;
 
-	return true;
+	return false;
 }
 
