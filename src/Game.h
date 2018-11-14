@@ -22,6 +22,7 @@ public:
 	bool gamePaused();
 	void pauseBoard();
 	void unpauseBoard();
+	void redrawBoard();
 	void exit() { m_brunning = false; }
 	static Game* instance() {
 		if( s_pinstance == 0 ) {

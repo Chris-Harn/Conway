@@ -17,6 +17,8 @@ int main() {
 	Timer Clock;
 	Clock.init( DELAY_RENDERER, DELAY_UPDATE_BOARD );
 
+	TheGame::instance()->redrawBoard();
+
 	while( TheGame::instance()->running() ) {
 		TheGame::instance()->handleEvents();
 

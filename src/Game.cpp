@@ -158,6 +158,21 @@ void Game::unpauseBoard() {
 
 
 /**************************************************
+ *  Game::redrawBoard
+ *  Purpose: Redraws the entire board.
+ *  one key press.
+ *  Input: None.
+ *  Return: None.
+ *
+ *************************************************/
+
+void Game::redrawBoard() {
+	TheBoard::instance()->drawEntireScreen();
+	TheBoard::instance()->drawScreen();
+}
+
+
+/**************************************************
  *  Game::gamePause
  *  Purpose: Check if sim is paused/unpaused.
  *  Input: None.
