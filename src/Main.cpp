@@ -6,7 +6,6 @@
 #include "TestSuite.h"
 
 int main() {
-	TheTestSuite::instance()->init();	
 	TheTestSuite::instance()->run();
 	TheTestSuite::instance()->clean();
 

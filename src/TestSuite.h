@@ -3,7 +3,6 @@
 
 class TestSuite {
 public:
-	void init();
 	void run();
 	void clean();
 
@@ -18,6 +17,8 @@ private:
 	TestSuite();
 	void test1();
 	void test2();
+	int m_testRun;
+	int m_testPassed;
 	static TestSuite *s_pinstance;
 };
 
