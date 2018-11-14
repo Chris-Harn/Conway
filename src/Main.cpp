@@ -3,8 +3,13 @@
 #include "Game.h"
 #include "Timer.h"
 #include "Message.h"
+#include "TestSuite.h"
 
 int main() {
+	TheTestSuite::instance()->init();	
+	TheTestSuite::instance()->run();
+	TheTestSuite::instance()->clean();
+
 	if( TheGame::instance()->init( GAME_WIDTH, GAME_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT ) ) {
 		errorMessage( "The Game failed to initialize. Exiting Program." );
 		return 1;
