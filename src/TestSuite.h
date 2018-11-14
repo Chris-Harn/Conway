@@ -1,6 +1,13 @@
 #ifndef __TESTSUITE__
 #define __TESTSUITE__
 
+/**************************************************
+ *  TestSuite
+ *  Purpose: Test cases to prove all classes and
+ *  functions are working correctly.
+ *
+ *************************************************/
+
 class TestSuite {
 public:
 	void run();

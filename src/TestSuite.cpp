@@ -18,10 +18,3 @@ void TestSuite::clean() {
 	std::cout << "Total Test Run: " << m_testRun << "/r Total Test Passed: " << m_testPassed << ".\n";
 }
 
-void TestSuite::test1() {
-
-}
-
-void TestSuite::test2() {
-
-}
