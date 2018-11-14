@@ -7,7 +7,7 @@
 
 int main() {
 	TheTestSuite::instance()->run();
-	TheTestSuite::instance()->clean();
+	TheTestSuite::instance()->results();
 
 	if( TheGame::instance()->init( GAME_WIDTH, GAME_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT ) ) {
 		errorMessage( "The Game failed to initialize. Exiting Program." );

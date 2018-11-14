@@ -12,7 +12,7 @@
  *
  *************************************************/
 
-void messsage( const char *message ) {
+void message( const char *message ) {
 	std::cout << "  " << message << " \n";
 }
 

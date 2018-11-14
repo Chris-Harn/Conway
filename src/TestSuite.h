@@ -11,7 +11,7 @@
 class TestSuite {
 public:
 	void run();
-	void clean();
+	void results();
 
 	static TestSuite* instance() {
 		if( s_pinstance == 0 ) {

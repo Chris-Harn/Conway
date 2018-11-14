@@ -7,7 +7,7 @@
  *
  *************************************************/
 
-void messsage( const char *message );
+void message( const char *message );
 void errorMessage( const char *errorMessage );
 
 #endif
