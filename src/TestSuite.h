@@ -13,6 +13,10 @@ public:
 	void run();
 	void results();
 
+	bool compareInt( int functionAnswer, int expectedAnswer );
+	bool compareFloat( float functionAnswer, float expectedAnswer, float tolerance );
+	bool compareDouble( double functionAnswer, double expectedAnswer, double tolerance );
+
 	static TestSuite* instance() {
 		if( s_pinstance == 0 ) {
 			s_pinstance = new TestSuite();
